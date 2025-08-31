@@ -7,7 +7,6 @@ import { BrowserRouter, Routes, Route, useNavigate } from "react-router-dom";
 import './find.css';
 import AirlineSeatReclineExtraIcon from '@mui/icons-material/AirlineSeatReclineExtra';
 
-// MUI imports
 import {
   Box,
   Button,
@@ -27,7 +26,6 @@ import {
   Chip
 } from '@mui/material';
 
-// MUI icons
 import {
   FlightTakeoff,
   FlightLand,
@@ -227,7 +225,6 @@ export const Find = () => {
                                                 className="flight-chip flight-chip-source"
                                             />
                                             
-                                            {/* איקון מטוס מעופף בין המקור ליעד */}
                                             <AirplanemodeActive className="flight-route-icon" />
                                             
                                             <Divider orientation="vertical" flexItem className="flight-divider" />
@@ -257,7 +254,6 @@ export const Find = () => {
                 </Box>
             )}
             
-            {/* Original datalists preserved */}
             <datalist id='dest'>
                 {destinitions?.map((d, index) => (
                     <option key={index || d.id}>{d.destination}</option>

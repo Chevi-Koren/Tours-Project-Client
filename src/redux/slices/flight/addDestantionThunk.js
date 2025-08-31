@@ -13,7 +13,6 @@ export const addDestantionThunk = createAsyncThunk('addDestantionThunk',
         )
         if(response.ok){
             let data =  await response.json();
-            console.log(data);
             return data;
         }
           else{

@@ -1,13 +1,11 @@
-/* שינוי רוחב המיכל הראשי להיות 100% במקום רוחב מוגבל */
 .cart-container {
     direction: rtl;
-    padding: 30px 20px; /* הוספת padding בצדדים */
-    max-width: 100% !important; /* שינוי מ-1200px ל-100% */
+    padding: 30px 20px; 
+    max-width: 100% !important; 
     width: 100%;
     margin: 0 auto;
 }
 
-/* Cart Title */
 .cart-title {
     display: flex;
     align-items: center;
@@ -21,7 +19,6 @@
     color: #4CAF50;
 }
 
-/* התאמת הכרטיס הריק לרוחב מלא */
 .empty-cart-card {
     padding: 40px;
     text-align: center;
@@ -43,26 +40,25 @@
     margin-bottom: 10px;
 }
 
-/* הגדלה נוספת של כפתור "המשך לחיפוש טיסות" */
 .continue-shopping-btn {
     margin-top: 20px !important;
-    padding: 14px 32px !important; /* הגדלת הריפוד עוד יותר */
+    padding: 14px 32px !important; 
     font-size: 1.1rem !important;
     font-weight: 600 !important;
     border-radius: 8px !important;
     text-transform: none !important;
-    min-width: 280px !important; /* הגדלת הרוחב המינימלי */
-    height: auto !important; /* גובה אוטומטי לפי התוכן */
-    line-height: 1.4 !important; /* מרווח בין שורות */
-    white-space: normal !important; /* מאפשר שבירת שורות */
+    min-width: 280px !important; 
+    height: auto !important; 
+    line-height: 1.4 !important; 
+    white-space: normal !important; 
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
     transition: all 0.3s ease !important;
 }
 
 .continue-shopping-btn .MuiButton-label {
-    display: block; /* מבטיח שהטקסט יישאר בתוך הכפתור */
-    width: 100%; /* רוחב מלא */
-    text-align: center; /* מרכוז הטקסט */
+    display: block; 
+    width: 100%; 
+    text-align: center; 
 }
 
 .continue-shopping-btn:hover {
@@ -70,7 +66,6 @@
     box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15) !important;
 }
 
-/* התאמה למסכים קטנים */
 @media (max-width: 600px) {
     .continue-shopping-btn {
         width: 100% !important;
@@ -80,7 +75,6 @@
     }
 }
 
-/* התאמת התוכן של הסל לרוחב מלא */
 .cart-content {
     display: flex;
     flex-direction: column;
@@ -100,21 +94,20 @@
     
     .order-summary-card {
         flex: 1;
-        max-width: 350px; /* הגבלת רוחב לכרטיס הסיכום */
+        max-width: 350px; 
     }
 }
 
-/* Cart Table */
 .cart-table-container {
     border-radius: 10px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-    overflow: hidden; /* Gardé pour maintenir les coins arrondים */
-    width: 100%; /* Assure que le conteneur prend toute la largeור */
+    overflow: hidden; 
+    width: 100%; 
 }
 
 .cart-table {
-    width: 100%; /* Au lieu de min-width fixe */
-    table-layout: fixed; /* Fixe la largeur des colonnes */
+    width: 100%; 
+    table-layout: fixed; 
 }
 
 .table-header-cell {
@@ -124,7 +117,7 @@
 }
 
 .cart-table-row:hover {
-    background-color: #f5f9fc; /* Couleur plus douce au survol */
+    background-color: #f5f9fc; 
 }
 
 .quantity-input {
@@ -136,7 +129,6 @@
     color: #4CAF50 !important;
 }
 
-/* Order Summary */
 .order-summary-card {
     border-radius: 10px !important;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
@@ -181,21 +173,19 @@
     margin-top: 10px !important;
 }
 
-/* Responsive adjustments */
 @media (max-width: 960px) {
     .cart-table-container {
         margin-bottom: 20px;
-        overflow: visible; /* Supprimer le défilement horizontal */
+        overflow: visible; 
     }
     
-    /* Transformer la table en disposition verticale pour mobile */
     .cart-table, .cart-table tbody, .cart-table tr, .cart-table td {
         display: block;
         width: 100%;
     }
     
     .cart-table thead {
-        display: none; /* Cacher l'en-tête sur mobile */
+        display: none; 
     }
     
     .cart-table tr {
@@ -222,20 +212,18 @@
         text-align: right;
     }
     
-    /* Ajuster le bouton de suppression */
     .cart-table td:first-child {
         text-align: left;
         padding-left: 8px !important;
     }
     
-    /* Améliorer l'espacement des champs de quantité */
+
     .quantity-input {
         width: 100%;
         max-width: 80px;
         margin-left: auto;
     }
     
-    /* Mettre en évidence le prix total */
     .item-total-price {
         font-size: 1.1rem !important;
         padding-top: 8px !important;
@@ -271,7 +259,6 @@
     }
 }
 
-/* Animation for adding/removing items */
 @keyframes highlight {
     0% { background-color: rgba(76, 175, 80, 0.2); }
     100% { background-color: transparent; }
@@ -281,12 +268,10 @@
     animation: highlight 1s ease-out;
 }
 
-/* Snackbar customization */
 .MuiAlert-root {
     direction: rtl !important;
 }
 
-/* Custom scrollbar for tables */
 .cart-table-container::-webkit-scrollbar {
     height: 8px;
 }
@@ -305,7 +290,6 @@
     background: #a1a1a1;
 }
 
-/* Hover effects */
 .checkout-button:hover {
     background-color: #3d9140 !important;
     transform: translateY(-2px);
@@ -316,13 +300,11 @@
     background-color: rgba(76, 175, 80, 0.1) !important;
 }
 
-/* Focus styles for better accessibility */
 .quantity-input input:focus {
     border-color: #4CAF50;
     box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
 }
 
-/* Empty state improvements */
 .empty-cart-card {
     transition: all 0.3s ease;
 }
@@ -332,7 +314,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
 }
 
-/* Price tag styling */
 .item-total-price, .total-price {
     position: relative;
     transition: all 0.2s ease;
@@ -342,17 +323,14 @@
     transform: scale(1.05);
 }
 
-/* Delete button effects */
 .MuiIconButton-root:hover {
     background-color: rgba(244, 67, 54, 0.1) !important;
 }
 
-/* Table row hover effect */
 .cart-table-row td {
     transition: background-color 0.2s ease;
 }
 
-/* Mobile optimizations */
 @media (max-width: 480px) {
     .cart-table {
         min-width: 450px;

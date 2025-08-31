@@ -47,10 +47,8 @@ export const AddClassToFlight = (props) => {
 
     const handleSubmit = () => {
       if (ctflight.classId !== 0) {
-        // עריכת מחלקה לטיסה קיימת
         addCTFlight(ctflight);
       } else {
-        // הוספת מחלקה לטיסה חדשה
         let c = ctflight;
         c.thisflightId = thisFlt.id;
       

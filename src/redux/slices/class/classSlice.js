@@ -19,7 +19,6 @@ export const classSlice = createSlice({
 
     extraReducers: (builder) => {
 
-        //GetAllClasses
         builder.addCase(getAllClassThunk.pending, (state) => {
         })
 

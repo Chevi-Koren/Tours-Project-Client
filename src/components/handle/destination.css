@@ -51,7 +51,7 @@
     object-fit: contain;
     border-radius: 4px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    border: 2px solid #1976d2; /* מסגרת כחולה */
+    border: 2px solid #1976d2; 
     padding: 3px;
     background-color: white;
     transition: all 0.3s ease;
@@ -60,10 +60,9 @@
   .destination-image:hover {
     transform: scale(1.05);
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-    border-color: #4caf50; /* שינוי צבע המסגרת בהובר לירוק */
+    border-color: #4caf50; 
   }
   
-  /* כפתור עריכה מרובע עם פס תחתון בהובר */
   .MuiIconButton-root {
     border-radius: 4px !important;
     transition: all 0.3s ease !important;
@@ -74,7 +73,6 @@
     background-color: rgba(25, 118, 210, 0.08) !important;
   }
   
-  /* הוספת פס תחתון בהובר */
   .MuiIconButton-root::after {
     content: '';
     position: absolute;
@@ -90,7 +88,6 @@
     width: 100%;
   }
   
-  /* For responsive design */
   @media (max-width: 600px) {
     .destination-header {
       flex-direction: column;
@@ -108,23 +105,21 @@
     }
   }
 
-/* הוספת סגנון למסגרת צבעונית ליעד - עם צבעים יותר בולטים */
 .destination-chip {
   font-weight: 500 !important;
   padding: 4px 8px !important;
-  color: #2e7d32 !important; /* צבע ירוק כהה יותר */
+  color: #2e7d32 !important; 
   border-color: #2e7d32 !important;
-  border-width: 2px !important; /* מסגרת עבה יותר */
-  background-color: rgba(46, 125, 50, 0.05) !important; /* רקע ירוק בהיר מאוד */
+  border-width: 2px !important; 
+  background-color: rgba(46, 125, 50, 0.05) !important; 
 }
 
 .destination-chip .MuiChip-icon {
   color: #2e7d32 !important;
 }
 
-/* הוספת וריאציות צבעוניות לפי האינדקס של היעד */
 .destination-chip:nth-of-type(3n+1) {
-  color: #ff6f00 !important; /* כתום במקום כחול */
+  color: #ff6f00 !important; 
   border-color: #ff6f00 !important;
   background-color: rgba(255, 111, 0, 0.05) !important;
 }
@@ -134,7 +129,7 @@
 }
 
 .destination-chip:nth-of-type(3n+2) {
-  color: #c62828 !important; /* אדום */
+  color: #c62828 !important; 
   border-color: #c62828 !important;
   background-color: rgba(198, 40, 40, 0.05) !important;
 }
@@ -144,7 +139,7 @@
 }
 
 .destination-chip:nth-of-type(3n+3) {
-  color: #6a1b9a !important; /* סגול */
+  color: #6a1b9a !important; 
   border-color: #6a1b9a !important;
   background-color: rgba(106, 27, 154, 0.05) !important;
 }
@@ -153,14 +148,12 @@
   color: #6a1b9a !important;
 }
 
-/* אפקט הובר משופר */
 .destination-chip:hover {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
   transform: translateY(-2px);
   transition: all 0.3s ease;
 }
 
-/* הוספת סגנונות לאנימציית טעינה */
 .loading-spinner-container {
   display: flex;
   justify-content: center;
@@ -184,7 +177,6 @@
   }
 }
 
-/* אנימציית הופעה הדרגתית לתוכן */
 .content-fade-in {
   animation: content-fade-in 0.5s ease-in-out;
 }

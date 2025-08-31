@@ -36,7 +36,6 @@ not-found-container {
     opacity: 0.8;
 }
 
-/* אנימציה של מטוס */
 .plane-animation {
     position: absolute;
     top: 50%;
@@ -136,7 +135,6 @@ not-found-container {
     transform: translateY(-2px);
 }
 
-/* רקע מעוצב */
 .not-found-paper::before {
     content: "";
     position: absolute;
@@ -161,7 +159,6 @@ not-found-container {
     z-index: 1;
 }
 
-/* התאמה למסכים קטנים */
 @media (max-width: 600px) {
     .not-found-container {
         padding: 20px;

@@ -30,16 +30,14 @@ export const Destnation = () => {
   const dispatch = useDispatch();
   const [add, setAdd] = useState(false);
   const [des, setDes] = useState({ path: "", destination: "" });
-  const [loading, setLoading] = useState(true); // מצב טעינה חדש
+  const [loading, setLoading] = useState(true); 
   const destinitions = useSelector(state => state.flights.destinitions);
 
   useEffect(() => {
-    setLoading(true); // מתחיל טעינה
+    setLoading(true); 
     dispatch(loct("/destnation"));
     dispatch(getAllDestinationThunk())
       .then(() => {
-        // מחכה מעט לפני הסרת הטעינה כדי למנוע הבהוב מהיר
-        // setTimeout(() => setLoading(false), 800);
         setLoading(false)
       })
       .catch(() => {
@@ -48,10 +46,9 @@ export const Destnation = () => {
   }, [dispatch]);
 
   const addDes = (addDes) => {
-    setLoading(true); // מתחיל טעינה בעת הוספה
+    setLoading(true);
     dispatch(addDestantionThunk(addDes))
       .then(() => {
-        // setTimeout(() => setLoading(false), 500);
         setLoading(false)
         close();
       })
@@ -62,10 +59,9 @@ export const Destnation = () => {
   };
 
   const updateDes = (updateDes) => {
-    setLoading(true); // מתחיל טעינה בעת עדכון
+    setLoading(true); 
     dispatch(updateDestinationThunk(updateDes))
       .then(() => {
-        // setTimeout(() => setLoading(false), 500);
         setLoading(false)
         close();
       })
@@ -80,7 +76,6 @@ export const Destnation = () => {
     setAdd(false);
   };
 
-  // אם בטעינה, מציג אנימציית טעינה
   if (loading) {
     return (
       <Container className="destination-container">

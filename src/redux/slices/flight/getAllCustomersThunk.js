@@ -8,7 +8,6 @@ export const getAllCustomersThunk = createAsyncThunk('fetchAllCustomersThunk',
             const data = await response.json();
             return data;
         } catch (error) {
-            console.log("Faild to find Customers");
             throw new Error("Faild to find Customers");
         }
     }

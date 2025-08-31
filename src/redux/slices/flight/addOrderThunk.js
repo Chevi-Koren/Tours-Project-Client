@@ -12,12 +12,9 @@ export const addOrderThunk = createAsyncThunk('fetchOrderThunk',
             }
         )
         if(response.ok){
-            let data =  await response.json();
-            console.log(data);
-            return data;
         }
-          else{
-              throw new Error('faild to fetch to addOrder');
-          }
+        else{
+            throw new Error('faild to fetch to addOrder');
+        }
     }
 )

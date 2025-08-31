@@ -5,7 +5,6 @@ export const getAllOrdersThunk = createAsyncThunk('fetchAllOrdersThunk',
         try {
             const response = await fetch("http://localhost:5041/api/Orders/GetAll");
             const data = await response.json();
-            console.log(data);
             return data;
         } catch (error) {
             throw new Error("Faild to find getAllOrders");

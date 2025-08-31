@@ -6,7 +6,6 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { savaClassToFlight } from "../../redux/slices/flight/flightsSlice";
 import './flightDetails.css';
 
-// MUI Imports
 import {
   Box,
   Button,
@@ -27,7 +26,6 @@ import {
   useMediaQuery
 } from '@mui/material';
 
-// MUI Icons
 import {
   AddShoppingCart,
   ShoppingCart,
@@ -96,7 +94,6 @@ export const FlightDetails = () => {
         setOpenSnackbar(false);
     };
     
-    // Calculate rating based on sold seats
     const calculateRating = () => {
         if (!yourClassToFlight) return 0;
         
@@ -109,11 +106,9 @@ export const FlightDetails = () => {
     };
     
 
-    // Calculate remaining seats
     const remainingSeats = yourClassToFlight ? 
         yourClassToFlight.numberOfSeats - yourClassToFlight.sold : 0;
     
-    // Calculate total price
     const calculateTotalPrice = () => {
         if (!yourClassToFlight) return 0;
         
@@ -133,24 +128,6 @@ export const FlightDetails = () => {
         <Container className="flight-details-container">
             <Paper elevation={3} className="flight-details-paper">
                 <Grid container spacing={3}>
-                    {/* Flight Header */}
-                    <Grid item xs={12}>
-                        <Box className="flight-header">
-                            <Typography variant="h4" component="h1" className="flight-title">
-                                פרטי טיסה
-                            </Typography>
-                            <Rating 
-                                value={calculateRating()} 
-                                readOnly 
-                                className="flight-popularity"
-                                icon={<Star className="star-icon" />}
-                                emptyIcon={<StarBorder className="star-icon-empty" />}
-                            />
-                        </Box>
-                        <Divider className="header-divider" />
-                    </Grid>
-                    
-                    {/* Flight Image */}
                     <Grid item xs={12} md={6}>
                         <Card className="flight-image-card">
                             <CardMedia
@@ -168,7 +145,6 @@ export const FlightDetails = () => {
                         </Card>
                     </Grid>
                     
-                    {/* Flight Info */}
                     <Grid item xs={12} md={6}>
                         <Card className="flight-info-card">
                             <CardContent>
@@ -263,7 +239,6 @@ export const FlightDetails = () => {
                         </Card>
                     </Grid>
                     
-                    {/* Booking Section */}
                     <Grid item xs={12}>
                         <Card className="booking-card">
                             <CardContent>
@@ -294,9 +269,9 @@ export const FlightDetails = () => {
                                             </Typography>
                                             <Box className="quantity-controls">
                                                 <IconButton 
-                                                    onClick={() => { nOS < Math.min(yourClassToFlight.numberOfSeats - yourClassToFlight.sold, 10) && setNOS(nOS + 1) }}
+                                                    onClick={() => { nOS < Math.min(yourClassToFlight.numberOfSeats - yourClassToFlight.sold) && setNOS(nOS + 1) }}
                                                     color="primary"
-                                                    disabled={nOS >= Math.min(yourClassToFlight.numberOfSeats - yourClassToFlight.sold, 10)}
+                                                    disabled={nOS >= Math.min(yourClassToFlight.numberOfSeats - yourClassToFlight.sold)}
                                                 >
                                                     <Add />
                                                 </IconButton>
@@ -384,7 +359,6 @@ export const FlightDetails = () => {
                        </Grid>
                    </Paper>
                    
-                   {/* Success Snackbar */}
                    <Snackbar
                        open={openSnackbar}
                        autoHideDuration={4000}
@@ -399,6 +373,4 @@ export const FlightDetails = () => {
            );
        };
        
-    //    // Helper components for Rating
-    //     Star = (props) => <StarIcon {...props} />;
-    //     StarBorder = (props) => <StarOutlineIcon {...props} />;                         
+                      

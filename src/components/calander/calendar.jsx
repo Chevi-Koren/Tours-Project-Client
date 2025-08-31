@@ -32,33 +32,34 @@ export const Calendar = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const dateTimeMonth = (m) => {
-    //d = ראשון בחודש
-    //d2 = ראשון בשבוע של d
-    let localWeek = [];
-    let s = date.toLocaleDateString();
-    let d = new Date(s);
-    let n = date.getDate();
-    d.setDate(((date.getDate() - n) + 1));
-    d.setMonth(d.getMonth() + m + months);
-    setMonthOver(d);
-    let ss = d.toLocaleDateString();
-    let d2 = new Date(ss);
-    let dayOfWeek = d.getDay();
-    d2.setDate(d.getDate() - dayOfWeek);
-    while (d2.getDate() !== 1 || d2.getMonth() === d.getMonth()) {
-      localWeek.push(d2.toLocaleDateString());
-      setWeek(localWeek);
-      d2.setDate(d2.getDate() + 1);
+  const dateTimeMonth = (m = 0) => {
+    // Calculate the new month and year
+    const today = new Date();
+    const currentMonth = today.getMonth() + months + m;
+    const currentYear = today.getFullYear();
+
+    // First and last day of the month
+    const firstDayOfMonth = new Date(currentYear, currentMonth, 1);
+    const lastDayOfMonth = new Date(currentYear, currentMonth + 1, 0);
+
+    // Find the first Sunday before or on the first day of the month
+    const startDay = new Date(firstDayOfMonth);
+    startDay.setDate(firstDayOfMonth.getDate() - firstDayOfMonth.getDay());
+
+    // Find the last Saturday after or on the last day of the month
+    const endDay = new Date(lastDayOfMonth);
+    endDay.setDate(lastDayOfMonth.getDate() + (6 - lastDayOfMonth.getDay()));
+
+    // Build the days array
+    let days = [];
+    let day = new Date(startDay);
+    while (day <= endDay) {
+      days.push(day.toLocaleDateString());
+      day.setDate(day.getDate() + 1);
     }
-    d2.setDate(d2.getDate() - 1);
-    if (d2.getDay() !== 6) {
-      while (d2.getDay() !== 6) {
-        d2.setDate(d2.getDate() + 1);
-        localWeek.push(d2.toLocaleDateString());
-        setWeek(localWeek);
-      }
-    }
+
+    setWeek(days);
+    setMonthOver(firstDayOfMonth);
     setMonths(months + m);
   };
 
@@ -129,42 +130,44 @@ export const Calendar = () => {
             ))}
           </Grid>
 
-          <Grid container className="days-grid">
-            {week.map((day, index) => {
-              const isToday = day === date.toLocaleDateString();
-              const isDifferentMonth = isMonth && parseInt(day.substring(0, 2)) !== monthOver.getMonth() + 1;
-              const dayFlights = getFlightsForDay(day);
-              
-              return (
-                <Grid 
-                  item 
-                  key={index} 
-                  className={`calendar-day ${isToday ? 'today' : ''} ${isDifferentMonth ? 'different-month' : ''}`}
-                >
-                  <Box className="day-content">
-                    <Typography className="day-number">{day}</Typography>
-                    
-                    {dayFlights.length > 0 && (
-                      <Box className="flights-container">
-                        {dayFlights.map((flight, flightIndex) => (
-                          <Chip
-                            key={flightIndex}
-                            icon={<FlightIcon />}
-                            label={flight.time}
-                            color="primary"
-                            variant="outlined"
-                            clickable
-                            onClick={() => navigate(`/flightDetail/${classes}/${flight.id}/${1}`)}
-                            className="flight-chip"
-                          />
-                        ))}
-                      </Box>
-                    )}
-                  </Box>
-                </Grid>
-              );
-            })}
-          </Grid>
+          {/* Render the days in rows of 7 */}
+          {Array.from({ length: Math.ceil(week.length / 7) }).map((_, rowIdx) => (
+            <Grid container className="days-grid" key={rowIdx}>
+              {week.slice(rowIdx * 7, rowIdx * 7 + 7).map((day, index) => {
+                const globalIndex = rowIdx * 7 + index;
+                const isToday = day === date.toLocaleDateString();
+                const isDifferentMonth = isMonth && parseInt(day.substring(0, 2)) !== monthOver.getMonth() + 1;
+                const dayFlights = getFlightsForDay(day);
+                return (
+                  <Grid 
+                    item 
+                    key={globalIndex} 
+                    className={`calendar-day ${isToday ? 'today' : ''} ${isDifferentMonth ? 'different-month' : ''}`}
+                  >
+                    <Box className="day-content">
+                      <Typography className="day-number">{day}</Typography>
+                      {dayFlights.length > 0 && (
+                        <Box className="flights-container">
+                          {dayFlights.map((flight, flightIndex) => (
+                            <Chip
+                              key={flightIndex}
+                              icon={<FlightIcon />}
+                              label={flight.time}
+                              color="primary"
+                              variant="outlined"
+                              clickable
+                              onClick={() => navigate(`/flightDetail/${classes}/${flight.id}/${1}`)}
+                              className="flight-chip"
+                            />
+                          ))}
+                        </Box>
+                      )}
+                    </Box>
+                  </Grid>
+                );
+              })}
+            </Grid>
+          ))}
         </Box>
       </Paper>
     </Container>

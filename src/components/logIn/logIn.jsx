@@ -3,9 +3,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { logInUserThunk } from "../../redux/slices/user/logInUserThunk";
 import { useNavigate } from "react-router-dom";
 import { logIn } from "../../redux/slices/user/userSlice";
+import { signOut } from "../../redux/slices/user/userSlice";
 import './logIn.css';
 
-// MUI imports
 import {
   Box,
   Button,
@@ -26,7 +26,6 @@ import {
   useTheme
 } from '@mui/material';
 
-// MUI icons
 import {
   Visibility,
   VisibilityOff,
@@ -44,14 +43,12 @@ export const LogIn = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     
-    // Redux state
     const user = useSelector(state => state.users.userWithoutOutId);
     const userName = useSelector(state => state.users.user);
     const status = useSelector(state => state.users.status);
     const statusUser = useSelector(state => state.users.statusUser);
     const loction = useSelector(state => state.users.loction);
     
-    // Local state
     const [thisUser, setUser] = useState(user || { firstName: '', lastName: '', password: '', email: '' });
     const [showPassword, setShowPassword] = useState(false);
     const [errors, setErrors] = useState({});
@@ -59,7 +56,6 @@ export const LogIn = () => {
     const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'info' });
     const [rememberMe, setRememberMe] = useState(false);
     
-    // Handle form validation
     const validateForm = () => {
         const newErrors = {};
         
@@ -83,7 +79,6 @@ export const LogIn = () => {
         return Object.keys(newErrors).length === 0;
     };
     
-    // Handle login
     const handleLogin = async () => {
         if (validateForm()) {
             setLoading(true);
@@ -96,7 +91,6 @@ export const LogIn = () => {
                     pass: thisUser.password 
                 }));
                 
-                // If remember me is checked, save to localStorage
                 if (rememberMe) {
                     localStorage.setItem('rememberedUser', JSON.stringify({
                         firstName: thisUser.firstName,
@@ -118,23 +112,19 @@ export const LogIn = () => {
         }
     };
     
-    // Handle password visibility toggle
     const handleTogglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
     
-    // Handle input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUser(prev => ({ ...prev, [name]: value }));
     };
     
-    // Handle snackbar close
     const handleSnackbarClose = () => {
         setSnackbar({ ...snackbar, open: false });
     };
     
-    // Load remembered user on component mount
     useEffect(() => {
         const rememberedUser = localStorage.getItem('rememberedUser');
         if (rememberedUser) {
@@ -148,8 +138,8 @@ export const LogIn = () => {
         }
     }, []);
     
-    // Redirect if already logged in
     useEffect(() => {
+        console.log(status);
         if (status) {
             navigate(`/logOn`);
         }
@@ -166,7 +156,6 @@ export const LogIn = () => {
             <Card className="login-card">
                 <CardContent className="login-card-content">
                     <Grid container>
-                        {/* Left side - Form */}
                         <Grid item xs={12} md={6} className="login-form-container">
                             <Box className="login-form">
                                 <Box className="login-header">
@@ -176,7 +165,7 @@ export const LogIn = () => {
                                     <IconButton 
                                         aria-label="close" 
                                         className="close-button"
-                                        onClick={() => navigate(loction)}
+                                        onClick={() => {dispatch(signOut());navigate(loction)}}
                                     >
                                         <CloseIcon />
                                     </IconButton>
@@ -339,7 +328,6 @@ export const LogIn = () => {
                             </Box>
                         </Grid>
                         
-                        {/* Right side - Image/Info (hidden on mobile) */}
                         {!isMobile && (
                             <Grid item md={6} className="login-info-container">
                                 <Box className="login-info">

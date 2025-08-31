@@ -74,7 +74,6 @@ export const flightsSlice = createSlice({
             },
             savaYourChooseFlightDetails: (state, action) => {
                 state.thisYourChooseThisFlight = action.payload;
-                console.log(action.payload);
             },
             deleteOrder: (state, action) => {
                 let i = state.orders.indexOf(action.payload)
@@ -105,7 +104,6 @@ export const flightsSlice = createSlice({
 
             builder.addCase(getAllFlightThunk.fulfilled, (state, action) => {
                 state.flightsArr = action.payload;
-                console.log(state.flightsArr);
             })
 
             builder.addCase(getAllFlightThunk.rejected, (state) => {
@@ -118,14 +116,13 @@ export const flightsSlice = createSlice({
 
             builder.addCase(getAllClassToFlightThunk.fulfilled, (state, action) => {
                 state.classToFlight = action.payload;
-                console.log(state.classToFlight);
             })
 
             builder.addCase(getAllClassToFlightThunk.rejected, (state) => {
             })
 
 
-            //
+            //UpdateFlight
             builder.addCase(updateFlightThunk.pending, (state) => {
             })
 
@@ -139,7 +136,7 @@ export const flightsSlice = createSlice({
             })
 
 
-            //getFlightDetails
+            //GetFlightDetails
             builder.addCase(getFlightDetailsByIdThunk.pending, (state) => {
             })
 
@@ -150,20 +147,19 @@ export const flightsSlice = createSlice({
             builder.addCase(getFlightDetailsByIdThunk.rejected, (state) => {
             })
 
-            //getDestinitionDetails
+            //GetDestinitionDetails
             builder.addCase(getAllDestinationThunk.pending, (state) => {
             })
 
             builder.addCase(getAllDestinationThunk.fulfilled, (state, action) => {
                 state.destinitions = action.payload;
-                console.log(state.destinitions);
             })
 
             builder.addCase(getAllDestinationThunk.rejected, (state) => {
             })
 
 
-            //addFlight
+            //AddFlight
             builder.addCase(addFlightThunk.pending, (state) => {
             })
 
@@ -189,20 +185,19 @@ export const flightsSlice = createSlice({
                 state.find = true;
             })
 
-            //getClassToFlightbyClassthisFlightId
+            //GetClassToFlightbyClassthisFlightId
             builder.addCase(getClassToFlightbyClassthisFlightIdThunk.pending, (state) => {
             })
 
             builder.addCase(getClassToFlightbyClassthisFlightIdThunk.fulfilled, (state, action) => {
                 state.yourClassToFlight = action.payload
-                console.log(state.yourClassToFlight)
             })
 
             builder.addCase(getClassToFlightbyClassthisFlightIdThunk.rejected, (state) => {
             })
 
             
-            //getThisFlightByFlightIdThunk
+            //GetThisFlightByFlightIdThunk
             builder.addCase(getThisFlightByFlightIdThunk.pending, (state) => {
             })
 
@@ -213,7 +208,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getThisFlightByFlightIdThunk.rejected, (state) => {
             })
 
-            //getAllThisFlightThunk
+            //GetAllThisFlightThunk
             builder.addCase(getAllThisFlightThunk.pending, (state) => {
             })
 
@@ -224,7 +219,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getAllThisFlightThunk.rejected, (state) => {
             })
 
-            //getAllFlightsWhisHanacahThunk
+            //GetAllFlightsWhisHanacahThunk
             builder.addCase(getAllFlightsWhisHanacahThunk.pending, (state) => {
             })
 
@@ -235,7 +230,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getAllFlightsWhisHanacahThunk.rejected, (state) => {
             })
 
-            //updateDestination
+            //UpdateDestination
             builder.addCase(updateDestinationThunk.pending, (state) => {
             })
 
@@ -246,7 +241,7 @@ export const flightsSlice = createSlice({
             builder.addCase(updateDestinationThunk.rejected, (state) => {
             })
 
-            //addDestination
+            //AddDestination
             builder.addCase(addDestantionThunk.pending, (state) => {
             })
 
@@ -257,7 +252,7 @@ export const flightsSlice = createSlice({
             builder.addCase(addDestantionThunk.rejected, (state) => {
             })
 
-            //addThisFlight
+            //AddThisFlight
             builder.addCase(addThisFlightThunk.pending, (state) => {
             })
 
@@ -270,7 +265,7 @@ export const flightsSlice = createSlice({
             })
 
             
-            //uppdateThisFlight
+            //UppdateThisFlight
             builder.addCase(updateThisFlightThunk.pending, (state) => {
             })
 
@@ -281,7 +276,7 @@ export const flightsSlice = createSlice({
             builder.addCase(updateThisFlightThunk.rejected, (state) => {
             })
 
-            //addOrder
+            //AddOrder
             builder.addCase(addOrderThunk.pending, (state) => {
                 state.ordersToPdf = []
                 state.orders.forEach(order => {
@@ -298,7 +293,7 @@ export const flightsSlice = createSlice({
                 state.orders.splice(0, state.orders.length)
             })
 
-            //getAllCustomers
+            //GetAllCustomers
             builder.addCase(getAllCustomersThunk.pending, (state) => {
             })
 
@@ -309,7 +304,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getAllCustomersThunk.rejected, (state) => {
             })
 
-            //getAllOrders
+            //GetAllOrders
             builder.addCase(getAllOrdersThunk.pending, (state) => {
             })
 
@@ -320,7 +315,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getAllOrdersThunk.rejected, (state) => {
             })
 
-            //getAllOrdersByCustomerThunk
+            //GetAllOrdersByCustomerThunk
             builder.addCase(getAllOrdersByCustomerThunk.pending, (state) => {
             })
 
@@ -331,7 +326,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getAllOrdersByCustomerThunk.rejected, (state) => {
             })
 
-            //updateClassToFlight
+            //UpdateClassToFlight
             builder.addCase(updateClassToFlight.pending, (state) => {
             })
 
@@ -342,7 +337,7 @@ export const flightsSlice = createSlice({
             builder.addCase(updateClassToFlight.rejected, (state) => {
             })
 
-            //getOrderDetailByClassToFlightId
+            //GetOrderDetailByClassToFlightId
             builder.addCase(getOrderDetailByClassToFlightIdThunk.pending, (state) => {
             })
 
@@ -353,7 +348,7 @@ export const flightsSlice = createSlice({
             builder.addCase(getOrderDetailByClassToFlightIdThunk.rejected, (state) => {
             })
 
-            //addClassToFlight
+            //AddClassToFlight
             builder.addCase(addClassToFlight.pending, (state) => {
             })
 
@@ -365,7 +360,7 @@ export const flightsSlice = createSlice({
                 state.response = false;
             })
 
-            //deleteFlight
+            //DeleteFlight
             builder.addCase(deleteFlight.pending, (state) => {
             })
 

@@ -1,7 +1,5 @@
-/* Global Styles */
 @import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&display=swap');
 
-/* Page Background */
 .class-selection-page {
   min-height: 100vh;
   position: relative;
@@ -28,7 +26,6 @@
   pointer-events: none;
 }
 
-/* Main Container */
 .class-selection-container {
   padding: 80px 20px;
   direction: rtl;
@@ -45,7 +42,6 @@
   width: 100%;
 }
 
-/* Title */
 .main-title {
   text-align: center;
   margin-bottom: 20px !important;
@@ -75,13 +71,11 @@
   font-family: 'Heebo', sans-serif !important;
 }
 
-/* Class Options Container */
 .class-options-container {
   margin-top: 30px;
   perspective: 1000px;
 }
 
-/* Class Card */
 .class-card {
   border-radius: 20px !important;
   overflow: hidden;
@@ -104,7 +98,6 @@
   box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Card Badge */
 .card-badge {
   position: absolute;
   top: 20px;
@@ -117,7 +110,6 @@
   transform: rotate(5deg);
 }
 
-/* Card Media */
 .card-media-container {
   position: relative;
   height: 220px;
@@ -145,7 +137,6 @@
   transition: background 0.3s ease;
 }
 
-/* Class Icon */
 .class-icon-container {
   position: absolute;
   bottom: 0;
@@ -175,7 +166,6 @@
   color: white;
 }
 
-/* Card Content */
 .card-content {
   padding: 35px 25px 25px !important;
   flex-grow: 1;
@@ -202,7 +192,6 @@
   font-family: 'Heebo', sans-serif !important;
 }
 
-/* Features */
 .feature-divider {
   width: 80%;
   margin: 20px auto !important;
@@ -235,7 +224,6 @@
   font-size: 16px !important;
 }
 
-/* Select Button */
 .select-button {
   padding: 10px 25px !important;
   border-radius: 30px !important;
@@ -256,7 +244,6 @@
   filter: brightness(110%);
 }
 
-/* 3D Card Effect */
 .class-card::before {
   content: '';
   position: absolute;
@@ -275,7 +262,6 @@
   opacity: 1;
 }
 
-/* Floating Animation */
 @keyframes float {
   0% { transform: translateY(0px); }
   50% { transform: translateY(-10px); }
@@ -298,7 +284,6 @@
   animation-delay: 4s;
 }
 
-/* Direct Color Assignments - First Card (מחלקה ראשונה) */
 .class-options-container .MuiGrid-item:nth-child(1) .class-card {
   border-color: #00897B;
 }
@@ -333,7 +318,6 @@
   background-color: #00897B !important;
 }
 
-/* Direct Color Assignments - Second Card (מחלקת תיירים) */
 .class-options-container .MuiGrid-item:nth-child(2) .class-card {
   border-color: #2196F3;
 }
@@ -368,7 +352,6 @@
   background-color: #2196F3 !important;
 }
 
-/* Direct Color Assignments - Third Card (מחלקת עסקים) */
 .class-options-container .MuiGrid-item:nth-child(3) .class-card {
   border-color: #4CAF50;
 }
@@ -403,7 +386,6 @@
   background-color: #4CAF50 !important;
 }
 
-/* Responsive Adjustments */
 @media (max-width: 1200px) {
   .class-selection-container {
     padding: 60px 20px;
@@ -480,7 +462,6 @@
     }
   }
   
-  /* Keep original class names for compatibility */
   .label {
     display: none;
   }
@@ -501,8 +482,6 @@
     display: none;
   }
   
-  /* Fallback direct color overrides */
-  /* First Card - Turquoise */
   .MuiGrid-root > .MuiGrid-item:first-of-type .class-icon,
   .MuiGrid-root > .MuiGrid-item:first-of-type .card-badge,
   .MuiGrid-root > .MuiGrid-item:first-of-type .select-button {
@@ -533,7 +512,6 @@
     border-color: #00897B !important;
   }
   
-  /* Second Card - Blue */
   .MuiGrid-root > .MuiGrid-item:nth-of-type(2) .class-icon,
   .MuiGrid-root > .MuiGrid-item:nth-of-type(2) .card-badge,
   .MuiGrid-root > .MuiGrid-item:nth-of-type(2) .select-button {
@@ -564,7 +542,6 @@
     border-color: #2196F3 !important;
   }
   
-  /* Third Card - Light Green */
   .MuiGrid-root > .MuiGrid-item:nth-of-type(3) .class-icon,
   .MuiGrid-root > .MuiGrid-item:nth-of-type(3) .card-badge,
   .MuiGrid-root > .MuiGrid-item:nth-of-type(3) .select-button {
@@ -595,7 +572,6 @@
     border-color: #4CAF50 !important;
   }
   
-  /* Force color override with !important */
   [data-class-type="ראשונה"] .class-icon,
   [data-class-type="ראשונה"] .card-badge,
   [data-class-type="ראשונה"] .select-button {

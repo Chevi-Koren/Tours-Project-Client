@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
 import HomeIcon from '@mui/icons-material/Home';
 import FlightIcon from '@mui/icons-material/Flight';
-import './NotFound.css';
+import './notFound.css';
 
 const NotFound = () => {
     return (

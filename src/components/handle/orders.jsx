@@ -167,7 +167,6 @@ export const Orders = () => {
         )}
       </Paper>
 
-      {/* Order Details Dialog */}
       <Dialog
         open={orderDetailOpen}
         onClose={handleCloseDetails}
@@ -295,7 +294,7 @@ export const Orders = () => {
             </Grid>
           ) : (
             <Typography variant="body1" align="center" className="no-details">
-              אין פרטי הזמנה זמינו
+              אין פרטי הזמנה זמינים
             </Typography>
           )}
         </DialogContent>

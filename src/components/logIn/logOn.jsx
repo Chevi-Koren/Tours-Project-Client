@@ -6,7 +6,6 @@ import { addUserThunk } from "../../redux/slices/user/addUserThunk";
 
 import './logOn.css';
 
-// MUI imports
 import {
   Box,
   Button,
@@ -30,7 +29,6 @@ import {
   StepLabel
 } from '@mui/material';
 
-// MUI icons
 import {
   Visibility,
   VisibilityOff,
@@ -43,7 +41,7 @@ import {
   ArrowForward as ArrowForwardIcon,
   CheckCircle as CheckCircleIcon
 } from '@mui/icons-material';
-import { signOut } from "../../redux/slices/user/userSlice";
+import { setStatus, signOut } from "../../redux/slices/user/userSlice";
 
 export const LogOn = () => {
     const navigate = useNavigate();
@@ -51,11 +49,9 @@ export const LogOn = () => {
     const theme = useTheme();
     const isMobile = useMediaQuery(theme.breakpoints.down('sm'));
     
-    // Redux state
     const user = useSelector(state => state.users.userWithoutOutId);
     const loction = useSelector(state => state.users.loction);
     
-    // Local state
     const [thisUser, setUser] = useState(user || { 
         firstName: '', 
         lastName: '', 
@@ -77,10 +73,8 @@ export const LogOn = () => {
         refDailog.current.showModal();
     }, []);
     
-    // Steps for registration process
     const steps = ['פרטים אישיים', 'פרטי התחברות', 'סיום'];
     
-    // Handle form validation
     const validateStep = (step) => {
         const newErrors = {};
         
@@ -124,19 +118,16 @@ export const LogOn = () => {
         return Object.keys(newErrors).length === 0;
     };
     
-    // Handle next step
     const handleNext = () => {
         if (validateStep(activeStep)) {
             setActiveStep((prevStep) => prevStep + 1);
         }
     };
     
-    // Handle back step
     const handleBack = () => {
         setActiveStep((prevStep) => prevStep - 1);
     };
     
-    // Handle registration
     const handleRegister = () => {
         if (validateStep(activeStep)) {
             setLoading(true);
@@ -160,26 +151,23 @@ export const LogOn = () => {
                 });
                 setLoading(false);
             }
+            dispatch(setStatus());
         }
     };
     
-    // Handle password visibility toggle
     const handleTogglePasswordVisibility = () => {
         setShowPassword(!showPassword);
     };
     
-    // Handle input change
     const handleInputChange = (e) => {
         const { name, value } = e.target;
         setUser(prev => ({ ...prev, [name]: value }));
     };
     
-    // Handle snackbar close
     const handleSnackbarClose = () => {
         setSnackbar({ ...snackbar, open: false });
     };
     
-    // Render step content
     const getStepContent = (step) => {
         switch (step) {
             case 0:
@@ -366,7 +354,6 @@ export const LogOn = () => {
                 <Card className="logon-card">
                     <CardContent className="logon-card-content">
                         <Grid container>
-                            {/* Left side - Form */}
                             <Grid item xs={12} md={6} className="logon-form-container">
                                 <Box className="logon-form">
                                     <Box className="logon-header">
@@ -376,7 +363,7 @@ export const LogOn = () => {
                                         <IconButton 
                                             aria-label="close" 
                                             className="close-button"
-                                            onClick={() => navigate(loction)}
+                                            onClick={() => {dispatch(signOut()); dispatch(setStatus()); navigate(loction)}}
                                         >
                                             <CloseIcon />
                                         </IconButton>
@@ -428,13 +415,15 @@ export const LogOn = () => {
                                 
 
                                     <Box className="login-link">
-                                        <Button variant="body2" onClick={() => {dispatch(signOut()); navigate(`/logIn`);}}>
+                                        <Button variant="body2" onClick={() => {dispatch(signOut()); dispatch(setStatus()); navigate(`/logIn`);}}>
                                             כבר יש לך חשבון?
                                         </Button>
                                         
                                         <Button 
                                             color="primary" 
-                                            onClick={() => navigate(`/logIn`)}
+                                            onClick={() => {navigate(`/logIn`)
+                                                dispatch(setStatus());
+                                            }}
                                             className="login-button-link"
                                         >
                                             התחברות
@@ -443,7 +432,6 @@ export const LogOn = () => {
                                 </Box>
                             </Grid>
                             
-                            {/* Right side - Image/Info (hidden on mobile) */}
                             {!isMobile && (
                                 <Grid item md={6} className="logon-info-container">
                                     <Box className="logon-info">

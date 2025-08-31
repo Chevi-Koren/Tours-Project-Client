@@ -5,7 +5,6 @@
     import { useNavigate } from "react-router-dom";
     import './flightsWhisHanach.css';
 
-    // MUI imports
     import {
       Box,
       Button,
@@ -39,7 +38,6 @@
       CircularProgress
     } from '@mui/material';
 
-    // MUI icons
     import {
       FlightTakeoff,
       FlightLand,
@@ -74,15 +72,14 @@
         const navigate = useNavigate();
         const [loading, setLoading] = useState(true);
         const [favorites, setFavorites] = useState([]);
-        const [sortOption, setSortOption] = useState('discount'); // discount, price, popularity
+        const [sortOption, setSortOption] = useState('discount'); 
     
-        // משתנים לפונקציונליות מתקדמת
         const [activeTab, setActiveTab] = useState(0);
         const [priceRange, setPriceRange] = useState([0, 10000]);
         const [showOnlyAvailable, setShowOnlyAvailable] = useState(false);
         const [filterMenuAnchor, setFilterMenuAnchor] = useState(null);
         const [selectedDestinations, setSelectedDestinations] = useState([]);
-        const [viewMode, setViewMode] = useState('grid'); // grid, list
+        const [viewMode, setViewMode] = useState('grid'); 
         const [notifyDeals, setNotifyDeals] = useState(false);
     
         useEffect(() => {
@@ -92,7 +89,6 @@
                 .catch(() => setLoading(false));
         }, [dispatch]);
     
-        // Toggle favorite
         const toggleFavorite = (id) => {
             if (favorites.includes(id)) {
                 setFavorites(favorites.filter(fav => fav !== id));
@@ -101,12 +97,10 @@
             }
         };
     
-        // Calculate discount percentage
         const calculateDiscountPercentage = (originalPrice, discountedPrice) => {
             return Math.round(((originalPrice - discountedPrice) / originalPrice) * 100);
         };
     
-        // Sort flights based on selected option
         const getSortedFlights = () => {
             if (!flightsWhisHanachaArr) return [];
         
@@ -128,7 +122,6 @@
             }
         };
     
-        // Get popularity level based on sold seats
         const getPopularityLevel = (sold, total) => {
             if (total - sold === 0) return 5;
             if (sold === 0) return 0;
@@ -138,7 +131,6 @@
             return 1;
         };
     
-        // Get class icon
         const getClassIcon = (classType) => {
             switch(classType) {
                 case 'תיירים':
@@ -152,7 +144,6 @@
             }
         };
     
-        // Format date
         const formatDate = (dateString) => {
             try {
                 const date = new Date(dateString);
@@ -166,7 +157,6 @@
             }
         };
     
-        // פונקציות לפונקציונליות מתקדמת
         const handleTabChange = (event, newValue) => {
             setActiveTab(newValue);
         };
@@ -191,40 +181,33 @@
             }
         };
     
-        // פילטור מתקדם
         const getFilteredFlights = () => {
             const sortedFlights = getSortedFlights();
         
             return sortedFlights.filter(flight => {
-                // פילטור לפי טווח מחירים
                 const discountedPrice = flight.price - flight.hanacha;
                 if (discountedPrice < priceRange[0] || discountedPrice > priceRange[1]) {
                     return false;
                 }
             
-                // פילטור לפי זמינות
                 if (showOnlyAvailable && flight.sold === flight.numberOfSeats) {
                     return false;
                 }
             
-                // פילטור לפי יעדים
                 if (selectedDestinations.length > 0 && 
                     !selectedDestinations.includes(flight.thisflight.flight.destinationNavigation.destination)) {
                     return false;
                 }
             
-                // פילטור לפי טאב פעיל
-                if (activeTab === 1 && !favorites.includes(flight.id)) { // מועדפים
+                if (activeTab === 1 && !favorites.includes(flight.id)) {
                     return false;
-                } else if (activeTab === 2 && calculateDiscountPercentage(flight.price, flight.price - flight.hanacha) < 30) { // הנחות גדולות
-                    return false;
+                } else if (activeTab === 2 && calculateDiscountPercentage(flight.price, flight.price - flight.hanacha) < 30) { 
                 }
             
                 return true;
             });
         };
     
-        // קבלת רשימת היעדים הייחודיים
         const getUniqueDestinations = () => {
             if (!flightsWhisHanachaArr) return [];
         
@@ -238,7 +221,6 @@
         const filteredFlights = getFilteredFlights();
         const uniqueDestinations = getUniqueDestinations();
     
-        // קבלת המחיר המינימלי והמקסימלי
         const getMinMaxPrice = () => {
             if (!flightsWhisHanachaArr || flightsWhisHanachaArr.length === 0) {
                 return [0, 10000];
@@ -252,12 +234,11 @@
 
         return (
             <Container className="deals-container" maxWidth={false} disableGutters={true}>
-                {/* כותרת מעוצבת - מרווחת יותר עם צבעי כחול-תכלת */}
                 <Paper 
                     elevation={0} 
                     className="deals-header"
                     sx={{
-                        background: 'linear-gradient(135deg, #1976d2, #0d47a1)', // Navigation colors
+                        background: 'linear-gradient(135deg, #1976d2, #0d47a1)', 
                         color: 'white'
                     }}
                 >
@@ -284,14 +265,13 @@
                             fontWeight: 600,
                             minWidth: '200px',
                             width: 'auto',
-                            color: 'white' // Changed to white to be visible on the blue background
+                            color: 'white' 
                         }}
                     >
                         חיפוש טיסות נוספות
                     </Button>
                 </Paper>
             
-                {/* סרגל סינונים מעוצב - מרווח יותר */}
                 <Box className="deals-toolbar">
                     <Box className="sort-options">
                         <Typography variant="body2" className="sort-label">
@@ -335,7 +315,6 @@
                         </IconButton>
                     </Tooltip>
                 
-                    {/* תפריט סינון מתקדם */}
                     <Menu
                         anchorEl={filterMenuAnchor}
                         open={Boolean(filterMenuAnchor)}
@@ -364,7 +343,7 @@
                                 valueLabelDisplay="auto"
                                 min={minPrice}
                                 max={maxPrice}
-                                sx={{ color: '#1976d2' }} // צבע הניווטים
+                                sx={{ color: '#1976d2' }}
                                 marks={[
                                     { value: minPrice, label: `₪${minPrice}` },
                                     { value: maxPrice, label: `₪${maxPrice}` }
@@ -424,9 +403,9 @@
                                 sx={{ 
                                     borderRadius: '24px',
                                     padding: '8px 24px',
-                                    bgcolor: '#1976d2', // צבע הניווטים
+                                    bgcolor: '#1976d2', 
                                     '&:hover': {
-                                        bgcolor: '#0d47a1', // גוון כהה יותר של צבע הניווטים
+                                        bgcolor: '#0d47a1',
                                     }
                                 }}
                             >
@@ -436,7 +415,6 @@
                     </Menu>
                 </Box>
             
-                {/* מצב טעינה - עיגול מתגלגל */}
                 {loading ? (
                     <Box className="loading-container" sx={{ 
                         display: 'flex', 
@@ -448,7 +426,7 @@
                         <CircularProgress 
                             size={60} 
                             thickness={4} 
-                            sx={{ color: '#1976d2' }} // צבע הניווטים
+                            sx={{ color: '#1976d2' }} 
                         />
                         <Typography 
                             variant="h6" 
@@ -463,7 +441,6 @@
                     </Box>
                 ) : (
                     <>
-                        {/* אין תוצאות - מרווח יותר */}
                         {filteredFlights.length === 0 ? (
                             <Box sx={{ 
                                 textAlign: 'center', 
@@ -512,7 +489,6 @@
                                 </Box>
                             </Box>
                         ) : (
-                            // רשימת הטיסות - מרווחת יותר
                             <Grid container spacing={4} className="deals-grid">
                                 {filteredFlights.map((flight) => {
                                     const discountedPrice = flight.price - flight.hanacha;
@@ -523,7 +499,6 @@
                                     return (
                                         <Grid item xs={12} sm={6} md={6} lg={4} key={flight.id}>
                                             <Card className="deal-card">
-                                                {/* מדד הפופולריות מעל התמונה */}
                                                 <Box 
                                                     sx={{ 
                                                         display: 'flex',
@@ -597,10 +572,7 @@
                                                                 במקום ₪{flight.price}
                                                             </Typography>
                                                         </Box>
-                                                        
-                                                        {/* הסרתי את מדד הפופולריות מכאן */}
                                                     </Box>
-                                                    
                                                     <Box className="seats-availability">
                                                         <Typography variant="body2" sx={{ color: flight.numberOfSeats - flight.sold < 5 ? '#d32f2f' : '#546e7a' }}>
                                                             {flight.numberOfSeats - flight.sold} מקומות נותרו
@@ -623,10 +595,10 @@
                                                         size="large"
                                                         disabled={flight.sold === flight.numberOfSeats}
                                                         sx={{
-                                                            backgroundColor: '#1976d2 !important', // צבע הניווטים
+                                                            backgroundColor: '#1976d2 !important',
                                                             color: 'white !important',
                                                             '&:hover': {
-                                                                backgroundColor: '#0d47a1 !important', // גוון כהה יותר של צבע הניווטים
+                                                                backgroundColor: '#0d47a1 !important', 
                                                             },
                                                             borderRadius: '30px',
                                                             padding: '12px 24px',

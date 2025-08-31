@@ -9,7 +9,6 @@ import { loct } from "../../redux/slices/user/userSlice";
 import { Handle } from "../handle/handle";
 import './flights.css';
 
-// MUI imports
 import { 
   Container, 
   Typography, 
@@ -54,7 +53,7 @@ export const Flights = () => {
     p: 4, 
     mb: 4, 
     borderRadius: 2,
-    background: 'linear-gradient(135deg, #1976d2 0%, #115293 100%)', // Changed to match MUI primary color
+    background: 'linear-gradient(135deg, #1976d2 0%, #115293 100%)', 
     color: 'white',
     textAlign: 'center'
   }}
@@ -135,7 +134,7 @@ export const Flights = () => {
                             sx={{ 
                               fontSize: 30, 
                               color: 'primary.main',
-                              transform: 'rotate(180deg)' // Flip the arrow for RTL
+                              transform: 'rotate(180deg)' 
                             }} 
                           />
                         </Box>

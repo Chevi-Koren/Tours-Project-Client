@@ -65,8 +65,6 @@ export const Home = () => {
     
     useEffect(() => {
         dispatch(loct("/about"));
-        // dispatch(getAllFlightThunk());
-        // dispatch(getAllDestinationThunk());
     }, [dispatch]);
     
     const handleDrawerToggle = () => {
@@ -349,10 +347,8 @@ export const Home = () => {
                 </Toolbar>
             </AppBar>
             
-            {/* Toolbar spacer */}
             <Box className="toolbar-spacer" />
             
-            {/* Mobile drawer */}
             <Drawer
                 variant="temporary"
                 open={drawerOpen}
@@ -394,7 +390,7 @@ export const Home = () => {
                                 </Box>
                             </Box>
                             <Typography variant="body2" className="footer-description">
-                                אנו מאמינים שטיסה היא יותר מאשר רק הגעה ממקום למקום. זו חוויה שמתחילה ברגע ההזמנה ונמשכת הרבה אחרי הנחיתה. אנחנו כאן כדי להפוך את החלום שלך למציאות.
+                                אנו מאמינים שטיסה היא הרבה מעבר להגעה ממקום למקום – זו חוויה שמתחילה ברגע ההזמנה, ונמשכת הרבה אחרי הנחיתה. אנחנו כאן כדי להפוך את החלום שלך למציאות, לדאוג לכל פרט, ולהעניק לך שקט נפשי ושירות מכל הלב. הלב שלנו איתך – בכל שלב בדרך.
                             </Typography>
                         </Box>
                         
@@ -402,7 +398,8 @@ export const Home = () => {
                             <Typography variant="h6" className="footer-title">
                                 ניווט מהיר
                             </Typography>
-                            <Box className="footer-links">
+                            <Divider className="footer-section-divider" style={{height: 3, margin: '8px 0 16px 0' }} />
+                            <Box className="footer-links" style={{ marginTop: 8 }}>
                                 <Typography variant="body2" className="footer-link" onClick={() => navigate('/about')}>
                                     דף הבית
                                 </Typography>
@@ -417,12 +414,13 @@ export const Home = () => {
                                 </Typography>
                             </Box>
                         </Box>
-                        
+
                         <Box className="footer-contact-section">
                             <Typography variant="h6" className="footer-title">
                                 צור קשר
                             </Typography>
-                            <Box className="footer-contact-info">
+                            <Divider className="footer-section-divider" style={{height: 3, margin: '8px 0 16px 0' }} />
+                            <Box className="footer-contact-info" style={{ marginTop: 8 }}>
                                 <Typography variant="body2" className="footer-contact-item">
                                     טלפון: 03-1234567
                                 </Typography>

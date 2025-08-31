@@ -49,12 +49,10 @@
   padding: 0;
 }
 
-/* Custom styles for each tab icon */
 .admin-tab .MuiSvgIcon-root {
   margin-bottom: 4px;
 }
 
-/* For responsive design */
 @media (max-width: 960px) {
   .admin-container {
     padding-left: 16px;

@@ -5,7 +5,6 @@ export const getAllOrdersByCustomerThunk = createAsyncThunk('fetchAllOrdersByCus
         try {
             const response = await fetch(`http://localhost:5041/api/Orders/GetByCustomerId/${id}`);
             const data = await response.json();
-            console.log(data);
             return data;
         } catch (error) {
             throw new Error("Faild to find getAllOrdersByCustomer");

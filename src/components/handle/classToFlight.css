@@ -1,5 +1,4 @@
-כללי
-/* סגנונות בסיסיים */
+
 .class-to-flight-container {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -61,7 +60,6 @@
     transform: scale(1.1);
   }
   
-  /* כפתור לקוחות שהזמינו - קטן */
   .view-button {
     transition: transform 0.2s;
     padding: 4px !important;
@@ -89,7 +87,6 @@
     font-style: italic;
   }
   
-  /* For responsive design */
   @media (max-width: 768px) {
     .class-to-flight-header {
       flex-direction: column;
@@ -129,25 +126,21 @@
     }
   }
 
-/* סגנונות צבעוניים לאינפוטים */
 .MuiTextField-root .MuiOutlinedInput-root {
   transition: all 0.3s ease;
 }
 
-/* מסגרת כחולה בהובר */
 .MuiTextField-root .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
   border-color: #2196f3;
   border-width: 2px;
 }
 
-/* מסגרת סגולה בפוקוס */
 .MuiTextField-root .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   border-color: #7c4dff;
   border-width: 2px;
   box-shadow: 0 0 5px rgba(124, 77, 255, 0.3);
 }
 
-/* סגנונות שונים לפי סוג האינפוט */
 .price-input .MuiOutlinedInput-notchedOutline {
   border-color: #4caf50;
 }
@@ -164,7 +157,6 @@
   border-color: #009688;
 }
 
-/* אנימציית קשת בעת מעבר בין שדות */
 @keyframes rainbow-border {
   0% { border-color: #ff0000; }
   20% { border-color: #ff9900; }
@@ -179,12 +171,10 @@
   border-width: 2px;
 }
 
-/* הוספת אפקט זוהר למסגרת בעת פוקוס */
 .glow-effect .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
   box-shadow: 0 0 8px rgba(33, 150, 243, 0.6);
 }
 
-/* הוספת סגנונות לאנימציית טעינה */
 .loading-spinner-container {
   display: flex;
   justify-content: center;
@@ -208,7 +198,6 @@
   }
 }
 
-/* אנימציית הופעה הדרגתית לתוכן */
 .content-fade-in {
   animation: content-fade-in 0.5s ease-in-out;
 }
@@ -224,7 +213,6 @@
   }
 }
 
-/* סגנונות למסגרות צבעוניות */
 .MuiChip-root.flight-chip {
     border-color: #1976d2 !important;
     color: #1976d2 !important;
@@ -260,7 +248,6 @@
     color: #ff6d00 !important;
 }
 
-/* הקטנת כפתורים עוד יותר */
 .edit-button, .view-button {
     padding: 2px !important;
     min-width: 24px !important;
@@ -273,7 +260,6 @@
     font-size: 14px !important;
 }
 
-/* הקטנת הצ'יפים */
 .MuiChip-root.flight-chip,
 .MuiChip-root.class-chip,
 .MuiChip-root.price-chip,
@@ -294,7 +280,6 @@
     padding-right: 6px !important;
 }
 
-/* סגנונות לדיאלוג לקוחות שהזמינו */
 .customers-dialog .MuiDialog-paper {
   border-radius: 12px !important;
   overflow: hidden;
@@ -324,7 +309,6 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1) !important;
 }
 
-/* עיצוב טבלת לקוחות */
 .customers-table-container .MuiTableHead-root .MuiTableCell-root {
   background-color: #f5f8ff;
   font-weight: 600 !important;
@@ -341,7 +325,6 @@
   padding: 12px 16px !important;
 }
 
-/* אנימציית טעינה מעגלית */
 .customers-loading-container {
   display: flex;
   justify-content: center;
@@ -385,7 +368,6 @@
   }
 }
 
-/* אנימציית הופעה הדרגתית לתוכן */
 .customers-fade-in {
   animation: customers-fade-in 0.5s ease-in-out;
 }
@@ -401,7 +383,6 @@
   }
 }
 
-/* עיצוב צ'יפים בטבלת לקוחות */
 .customers-table-container .MuiChip-root {
   height: 24px !important;
   font-size: 0.75rem !important;
@@ -417,7 +398,6 @@
   padding-right: 6px !important;
 }
 
-/* התאמה למסכים קטנים */
 @media (max-width: 600px) {
   .dialog-title {
     padding: 12px !important;

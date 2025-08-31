@@ -1,640 +1,615 @@
-          /* Main container - מרווח יותר */
-          .deals-container {
-              padding: 32px;
-              max-width: 100% !important; /* Changed from 1200px to 100% for full width */
-              width: 100% !important;
-              margin: 0 auto;
-              direction: rtl;
-            }
-  
-            /* Header - עיצוב בצבעי כחול של הניווטים והדגשת הכותרת */
-            .deals-header {
-              text-align: center;
-              margin-bottom: 40px;
-              padding: 36px 24px;
-              background: linear-gradient(135deg, #1976d2, #0d47a1); /* צבע הניווטים */
-              color: white;
-              border-radius: 16px;
-              position: relative;
-              overflow: hidden;
-              box-shadow: 0 10px 25px rgba(25, 118, 210, 0.2);
-            }
-  
-            .deals-header::before {
-              content: '';
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
-              opacity: 0.2;
-            }
-  
-            /* כותרת מודגשת */
-            .deals-title {
-              font-weight: 800 !important;
-              margin-bottom: 16px !important;
-              position: relative;
-              z-index: 1;
-              font-size: 2.5rem !important;
-              letter-spacing: -0.5px;
-              text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-            }
-  
-            .deals-subtitle {
-              opacity: 0.95;
-              position: relative;
-              z-index: 1;
-              font-size: 1.2rem !important;
-              max-width: 700px;
-              margin: 0 auto !important;
-              line-height: 1.5;
-            }
-  
-            /* Toolbar - מרווח יותר */
-            .deals-toolbar {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              margin-bottom: 32px;
-              padding: 16px 24px;
-              background-color: #f5f9fc;
-              border-radius: 12px;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-            }
-  
-            .sort-options {
-              display: flex;
-              align-items: center;
-              gap: 16px;
-              flex-wrap: wrap;
-            }
-  
-            .sort-label {
-              color: #546e7a;
-              font-weight: 500 !important;
-              margin-right: 8px;
-              font-size: 1rem !important;
-            }
-  
-            /* כפתורי מיון בצבעי כחול של הניווטים */
-            .sort-button {
-              text-transform: none !important;
-              border-radius: 24px !important;
-              padding: 8px 20px !important;
-              min-width: 100px !important;
-              font-weight: 600 !important;
-              transition: all 0.3s ease !important;
-              font-size: 1rem !important;
-            }
-  
-            .sort-button.active {
-              background-color: #1976d2 !important; /* צבע הניווטים */
-              color: white !important;
-            }
-  
-            .sort-button:not(.active) {
-              border-color: #1976d2 !important; /* צבע הניווטים */
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .sort-button:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2) !important;
-            }
-  
-            /* כפתור סינון מתקדם */
-            .filter-button {
-              color: #1976d2; /* צבע הניווטים */
-              background-color: white !important;
-              width: 48px !important;
-              height: 48px !important;
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
-              border-radius: 12px !important;
-              transition: all 0.3s ease !important;
-            }
-  
-            .filter-button:hover {
-              transform: translateY(-2px);
-              box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
-              background-color: #f5f5f5 !important;
-            }
-  
-            /* כפתור סינון מתקדם */
-            .filter-button-enhanced {
-              border-color: #1976d2 !important; /* צבע הניווטים */
-              color: #1976d2 !important; /* צבע הניווטים */
-              border-radius: 24px !important;
-              padding: 8px 16px !important;
-              font-weight: 600 !important;
-              text-transform: none !important;
-              transition: all 0.3s ease !important;
-            }
-  
-            .filter-button-enhanced:hover {
-              border-color: #0d47a1 !important; /* גוון כהה יותר של צבע הניווטים */
-              background-color: rgba(25, 118, 210, 0.04) !important;
-              box-shadow: 0 4px 8px rgba(25, 118, 210, 0.1) !important;
-            }
-  
-            /* כפתור צפייה בטיסה */
-            .view-button {
-              text-transform: none !important;
-              font-weight: 600 !important;
-              border-radius: 30px !important;
-              padding: 12px 24px !important;
-              background-color: #1976d2 !important; /* צבע הניווטים */
-              font-size: 1.1rem !important;
-              transition: all 0.3s ease !important;
-              box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25) !important;
-              color: white !important;
-            }
-  
-            .view-button:hover {
-              background-color: #0d47a1 !important; /* גוון כהה יותר של צבע הניווטים */
-              box-shadow: 0 8px 16px rgba(25, 118, 210, 0.35) !important;
-              transform: translateY(-2px);
-            }
-  
-            .view-button:disabled {
-              background-color: #e0e0e0 !important;
-              color: #9e9e9e !important;
-              box-shadow: none !important;
-            }
-  
-            /* איקונים של שעה, תאריך וכיתה */
-            .detail-icon-enhanced {
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
+  .deals-container {
+      padding: 32px;
+      max-width: 100% !important; 
+      margin: 0 auto;
+      direction: rtl;
+    }
 
-            /* כפתור צפייה והזמנה */
-            .view-button-enhanced {
-              text-transform: none !important;
-              font-weight: 600 !important;
-              border-radius: 30px !important;
-              padding: 12px 24px !important;
-              background-color: #1976d2 !important; /* צבע הניווטים */
-              color: white !important;
-              font-size: 1.1rem !important;
-              transition: all 0.3s ease !important;
-              box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25) !important;
-            }
+    .deals-header {
+      text-align: center;
+      margin-bottom: 40px;
+      padding: 36px 24px;
+      background: linear-gradient(135deg, #1976d2, #0d47a1); 
+      color: white;
+      border-radius: 16px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(25, 118, 210, 0.2);
+    }
 
-            .view-button-enhanced:hover {
-              background-color: #0d47a1 !important; /* גוון כהה יותר של צבע הניווטים */
-              box-shadow: 0 8px 16px rgba(25, 118, 210, 0.35) !important;
-              transform: translateY(-2px);
-            }
+    .deals-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E");
+      opacity: 0.2;
+    }
 
-            .view-button-enhanced:disabled {
-              background-color: #e0e0e0 !important;
-              color: #9e9e9e !important;
-              box-shadow: none !important;
-            }
+    .deals-title {
+      font-weight: 800 !important;
+      margin-bottom: 16px !important;
+      position: relative;
+      z-index: 1;
+      font-size: 2.5rem !important;
+      letter-spacing: -0.5px;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    }
 
-            /* איקונים בפרטי הטיסה */
-            .deal-date-enhanced .detail-icon-enhanced,
-            .deal-time-enhanced .detail-icon-enhanced,
-            .deal-class-enhanced .MuiSvgIcon-root {
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            /* Loading state - מרווח יותר */
-            .loading-container {
-              padding: 24px 0;
-            }
-  
-            .loading-progress {
-              margin-bottom: 32px;
-              height: 4px !important;
-            }
-  
-            /* No deals */
-            .no-deals {
-              text-align: center;
-              padding: 48px 0;
-              background-color: #f5f5f5;
-              border-radius: 8px;
-              margin-top: 16px;
-            }
-  
-            .search-button {
-              margin-top: 16px !important;
-              text-transform: none !important;
-            }
-  
-            /* Deals grid - מרווח יותר */
-            .deals-grid {
-              margin-top: 16px;
-            }
-  
-            /* Deal card - מרווח יותר ועיצוב בצבעי כחול של הניווטים */
-            .deal-card {
-              position: relative;
-              border-radius: 16px !important;
-              overflow: hidden;
-              transition: transform 0.3s, box-shadow 0.3s;
-              height: 100%;
-              display: flex;
-              flex-direction: column;
-              margin-bottom: 16px;
-            }
-  
-            .deal-card:hover {
-              transform: translateY(-8px);
-              box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1) !important;
-            }
-  
-            .deal-badge {
-              position: absolute;
-              top: 16px;
-              right: 16px;
-              z-index: 1;
-            }
-  
-            .discount-chip {
-              font-weight: 700 !important;
-              box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
-              padding: 8px 12px !important;
-              height: auto !important;
-              font-size: 0.9rem !important;
-            }
-  
-            .deal-image {
-              object-fit: cover;
-              transition: transform 0.5s;
-              height: 220px !important;
-              image-rendering: -webkit-optimize-contrast; /* שיפור חדות בדפדפני Webkit */
-              image-rendering: crisp-edges; /* שיפור חדות בדפדפנים אחרים */
-              backface-visibility: hidden; /* מונע טשטוש בזמן אנימציות */
-              transform: translateZ(0); /* הפעלת האצת חומרה */
-              will-change: transform; /* רמז לדפדפן על שינויים עתידיים */
-            }
-  
-            .deal-card:hover .deal-image {
-              transform: scale(1.05) translateZ(0);
-            }
-  
-            .deal-content {
-              flex-grow: 1;
-              padding: 16px !important;
-            }
-  
-            .deal-route {
-              font-weight: 700 !important;
-              margin-bottom: 16px !important;
-              line-height: 1.4 !important;
-              font-size: 1.2rem !important;
-              color: #0288d1;
-            }
-  
-            .deal-details {
-              display: flex;
-              flex-direction: column;
-              gap: 12px;
-              margin-bottom: 20px;
-            }
-  
-            .deal-date, .deal-time, .deal-class {
-              display: flex;
-              align-items: center;
-              gap: 12px;
-              font-size: 1rem !important;
-            }
-  
-            .detail-icon {
-              color: #03a9f4;
-            }
-  
-            .deal-divider {
-              margin: 16px 0 !important;
-              background-color: #e1f5fe !important;
-            }
-  
-            .deal-price {
-              display: flex;
-              justify-content: space-between;
-              align-items: flex-end;
-              margin-bottom: 16px;
-            }
-  
-            .discounted-price {
-              color: #d32f2f;
-              font-weight: 800 !important;
-              font-size: 1.5rem !important;
-            }
-  
-            .original-price {
-              text-decoration: line-through;
-              color: #757575;
-              font-size: 1.1rem !important;
-              margin-top: 4px !important;
-            }
-  
-            .popularity-container {
-              display: flex;
-              flex-direction: column;
-              align-items: flex-end;
-            }
-  
-            .popularity-label {
-              color: #757575;
-              margin-bottom: 4px;
-            }
-  
-            .popularity-rating .MuiRating-iconFilled {
-              color: #03a9f4;
-            }
-  
-            /* Card actions - מרווח יותר */
-            .deal-actions {
-              display: flex;
-              justify-content: space-between;
-              align-items: center;
-              padding: 12px 16px 16px !important;
-              flex-direction: column;
-              gap: 12px;
-            }
-  
-            .view-button {
-              text-transform: none !important;
-              font-weight: 600 !important;
-              border-radius: 30px !important;
-              padding: 8px 16px !important;
-              background-color: #03a9f4 !important;
-              font-size: 1rem !important;
-              transition: all 0.3s ease !important;
-              width: 100%;
-            }
-  
-            .view-button:hover {
-              background-color: #0288d1 !important;
-              box-shadow: 0 8px 16px rgba(3, 169, 244, 0.25) !important;
-              transform: translateY(-2px);
-            }
-  
-            .action-icons {
-              display: flex;
-              gap: 12px;
-              align-self: flex-end;
-            }
-  
-            .share-button, .favorite-button {
-              color: #757575;
-              width: 40px !important;
-              height: 40px !important;
-            }
-  
-            .favorite-button:hover {
-              color: #d32f2f;
-            }
-  
-            /* Seats availability - מרווח יותר */
-            .seats-availability {
-              margin-top: 16px;
-              margin-bottom: 8px;
-            }
-  
-            .seats-progress {
-              height: 6px !important;
-              border-radius: 3px !important;
-              margin-top: 8px !important;
-            }
-  
-            .seats-progress .MuiLinearProgress-barColorPrimary {
-              background-color: #03a9f4 !important;
-            }
-  
-            /* Responsive styles - התאמה למסכים קטנים */
-            @media (max-width: 960px) {
-              .deals-container {
-                padding: 24px;
-              }
-    
-              .deals-header {
-                padding: 32px 24px;
-                margin-bottom: 32px;
-              }
-    
-              .deals-title {
-                font-size: 2.2rem !important;
-              }
-    
-              .deals-subtitle {
-                font-size: 1.1rem !important;
-              }
-    
-              .deals-toolbar {
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 20px;
-                padding: 20px;
-              }
-    
-              .sort-options {
-                width: 100%;
-                justify-content: space-between;
-              }
-    
-              .sort-label {
-                display: none;
-              }
-    
-              .sort-button {
-                flex: 1;
-                min-width: 0 !important;
-                padding: 8px 12px !important;
-              }
-    
-              .filter-button {
-                align-self: flex-end;
-                margin-top: -48px;
-              }
-            }
-  
-            @media (max-width: 600px) {
-              .deals-container {
-                padding: 16px;
-              }
-    
-              .deals-header {
-                padding: 24px 16px;
-                margin-bottom: 24px;
-              }
-    
-              .deals-title {
-                font-size: 1.8rem !important;
-              }
-    
-              .deals-subtitle {
-                font-size: 1rem !important;
-              }
-    
-              .sort-button {
-                font-size: 0.9rem !important;
-                padding: 6px 10px !important;
-              }
-    
-              .deal-route {
-                font-size: 1.2rem !important;
-              }
-    
-              .discounted-price {
-                font-size: 1.2rem !important;
-              }
-    
-              .deal-actions {
-                flex-direction: column;
-                gap: 8px;
-              }
-    
-              .view-button {
-                width: 100%;
-              }
-    
-              .action-icons {
-                align-self: flex-end;
-              }
-            }
-  
-            /* Animation - אנימציות מהירות יותר */
-            @keyframes fadeIn {
-              from {
-                opacity: 0;
-                transform: translateY(20px);
-              }
-              to {
-                opacity: 1;
-                transform: translateY(0);
-              }
-            }
-  
-            .deal-card {
-              animation: fadeIn 0.5s ease-out;
-              animation-fill-mode: both;
-            }
-  
-            .deal-card:nth-child(2) {
-              animation-delay: 0.1s;
-            }
-  
-            .deal-card:nth-child(3) {
-              animation-delay: 0.2s;
-            }
-  
-            .deal-card:nth-child(4) {
-              animation-delay: 0.3s;
-            }
-  
-            .deal-card:nth-child(5) {
-              animation-delay: 0.4s;
-            }
-  
-            /* Accessibility improvements */
-            .MuiButton-root:focus-visible,
-            .MuiIconButton-root:focus-visible {
-              outline: 2px solid #03a9f4 !important;
-              outline-offset: 2px !important;
-            }
-  
-            /* RTL specific adjustments */
-            .MuiChip-icon {
-              margin-right: 0 !important;
-              margin-left: 4px !important;
-            }
-  
-            .MuiButton-startIcon {
-              margin-right: 0 !important;
-              margin-left: 8px !important;
-            }
-  
-            .MuiRating-root {
-              direction: ltr !important;
-            }
-  
-            /* מצב אזל מהמלאי - עיצוב משופר */
-            .sold-out-badge {
-              position: absolute;
-              top: 0;
-              left: 0;
-              width: 100%;
-              height: 100%;
-              background-color: rgba(0, 0, 0, 0.6);
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              z-index: 2;
-              backdrop-filter: blur(2px);
-            }
-  
-            .sold-out-text {
-              background-color: #d32f2f;
-              color: white;
-              padding: 10px 24px;
-              border-radius: 8px;
-              font-weight: 700;
-              transform: rotate(-10deg);
-              box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-              font-size: 1.2rem !important;
-              letter-spacing: 1px;
-            }
-  
-            /* תפריט סינון מתקדם - עיצוב משופר */
-            .filter-menu {
-              padding: 24px;
-            }
-  
-            .filter-menu .MuiTypography-root {
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiSlider-root {
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiSwitch-colorPrimary.Mui-checked {
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
-              background-color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiChip-root.MuiChip-colorPrimary {
-              background-color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiChip-root.MuiChip-outlined {
-              border-color: #1976d2 !important; /* צבע הניווטים */
-              color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiButton-contained {
-              background-color: #1976d2 !important; /* צבע הניווטים */
-            }
-  
-            .filter-menu .MuiButton-contained:hover {
-              background-color: #0d47a1 !important; /* גוון כהה יותר של צבע הניווטים */
-            }
+    .deals-subtitle {
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+      font-size: 1.2rem !important;
+      max-width: 700px;
+      margin: 0 auto !important;
+      line-height: 1.5;
+    }
 
-            /* עיצוב פס הגלילה בצבע הניווט */
-            ::-webkit-scrollbar {
-              width: 12px;
-              height: 12px;
-            }
+    .deals-toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 32px;
+      padding: 16px 24px;
+      background-color: #f5f9fc;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+    }
 
-            ::-webkit-scrollbar-track {
-              background: #f1f1f1;
-              border-radius: 10px;
-            }
+    .sort-options {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
 
-            ::-webkit-scrollbar-thumb {
-              background: #1976d2; /* צבע הניווט */
-              border-radius: 10px;
-              border: 3px solid #f1f1f1;
-            }
+    .sort-label {
+      color: #546e7a;
+      font-weight: 500 !important;
+      margin-right: 8px;
+      font-size: 1rem !important;
+    }
 
-            ::-webkit-scrollbar-thumb:hover {
-              background: #0d47a1; /* גוון כהה יותר של צבע הניווט */
-            }
+    .sort-button {
+      text-transform: none !important;
+      border-radius: 24px !important;
+      padding: 8px 20px !important;
+      min-width: 100px !important;
+      font-weight: 600 !important;
+      transition: all 0.3s ease !important;
+      font-size: 1rem !important;
+    }
+
+    .sort-button.active {
+      background-color: #1976d2 !important; 
+      color: white !important;
+    }
+
+    .sort-button:not(.active) {
+      border-color: #1976d2 !important; 
+      color: #1976d2 !important; 
+    }
+
+    .sort-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(25, 118, 210, 0.2) !important;
+    }
+
+    .filter-button {
+      color: #1976d2; 
+      background-color: white !important;
+      width: 48px !important;
+      height: 48px !important;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+      border-radius: 12px !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .filter-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12) !important;
+      background-color: #f5f5f5 !important;
+    }
+
+    .filter-button-enhanced {
+      border-color: #1976d2 !important; 
+      color: #1976d2 !important; 
+      border-radius: 24px !important;
+      padding: 8px 16px !important;
+      font-weight: 600 !important;
+      text-transform: none !important;
+      transition: all 0.3s ease !important;
+    }
+
+    .filter-button-enhanced:hover {
+      border-color: #0d47a1 !important; 
+      background-color: rgba(25, 118, 210, 0.04) !important;
+      box-shadow: 0 4px 8px rgba(25, 118, 210, 0.1) !important;
+    }
+
+    .view-button {
+      text-transform: none !important;
+      font-weight: 600 !important;
+      border-radius: 30px !important;
+      padding: 12px 24px !important;
+      background-color: #1976d2 !important; 
+      font-size: 1.1rem !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25) !important;
+      color: white !important;
+    }
+
+    .view-button:hover {
+      background-color: #0d47a1 !important; 
+      box-shadow: 0 8px 16px rgba(25, 118, 210, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
+    .view-button:disabled {
+      background-color: #e0e0e0 !important;
+      color: #9e9e9e !important;
+      box-shadow: none !important;
+    }
+
+    .detail-icon-enhanced {
+      color: #1976d2 !important; 
+    }
+
+    .view-button-enhanced {
+      text-transform: none !important;
+      font-weight: 600 !important;
+      border-radius: 30px !important;
+      padding: 12px 24px !important;
+      background-color: #1976d2 !important; 
+      color: white !important;
+      font-size: 1.1rem !important;
+      transition: all 0.3s ease !important;
+      box-shadow: 0 4px 12px rgba(25, 118, 210, 0.25) !important;
+    }
+
+    .view-button-enhanced:hover {
+      background-color: #0d47a1 !important; 
+      box-shadow: 0 8px 16px rgba(25, 118, 210, 0.35) !important;
+      transform: translateY(-2px);
+    }
+
+    .view-button-enhanced:disabled {
+      background-color: #e0e0e0 !important;
+      color: #9e9e9e !important;
+      box-shadow: none !important;
+    }
+
+    .deal-date-enhanced .detail-icon-enhanced,
+    .deal-time-enhanced .detail-icon-enhanced,
+    .deal-class-enhanced .MuiSvgIcon-root {
+      color: #1976d2 !important; 
+    }
+
+    .loading-container {
+      padding: 24px 0;
+    }
+
+    .loading-progress {
+      margin-bottom: 32px;
+      height: 4px !important;
+    }
+
+    .no-deals {
+      text-align: center;
+      padding: 48px 0;
+      background-color: #f5f5f5;
+      border-radius: 8px;
+      margin-top: 16px;
+    }
+
+    .search-button {
+      margin-top: 16px !important;
+      text-transform: none !important;
+    }
+
+    .deals-grid {
+      margin-top: 16px;
+    }
+
+    .deal-card {
+      position: relative;
+      border-radius: 16px !important;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 16px;
+    }
+
+    .deal-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .deal-badge {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1;
+    }
+
+    .discount-chip {
+      font-weight: 700 !important;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+      padding: 8px 12px !important;
+      height: auto !important;
+      font-size: 0.9rem !important;
+    }
+
+    .deal-image {
+      object-fit: cover;
+      transition: transform 0.5s;
+      height: 220px !important;
+      image-rendering: -webkit-optimize-contrast; 
+      image-rendering: crisp-edges; 
+      backface-visibility: hidden; 
+      transform: translateZ(0); 
+      will-change: transform; 
+    }
+
+    .deal-card:hover .deal-image {
+      transform: scale(1.05) translateZ(0);
+    }
+
+    .deal-content {
+      flex-grow: 1;
+      padding: 16px !important;
+    }
+
+    .deal-route {
+      font-weight: 700 !important;
+      margin-bottom: 16px !important;
+      line-height: 1.4 !important;
+      font-size: 1.2rem !important;
+      color: #0288d1;
+    }
+
+    .deal-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .deal-date, .deal-time, .deal-class {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 1rem !important;
+    }
+
+    .detail-icon {
+      color: #03a9f4;
+    }
+
+    .deal-divider {
+      margin: 16px 0 !important;
+      background-color: #e1f5fe !important;
+    }
+
+    .deal-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 16px;
+    }
+
+    .discounted-price {
+      color: #d32f2f;
+      font-weight: 800 !important;
+      font-size: 1.5rem !important;
+    }
+
+    .original-price {
+      text-decoration: line-through;
+      color: #757575;
+      font-size: 1.1rem !important;
+      margin-top: 4px !important;
+    }
+
+    .popularity-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+
+    .popularity-label {
+      color: #757575;
+      margin-bottom: 4px;
+    }
+
+    .popularity-rating .MuiRating-iconFilled {
+      color: #03a9f4;
+    }
+
+    .deal-actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 16px 16px !important;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .view-button {
+      text-transform: none !important;
+      font-weight: 600 !important;
+      border-radius: 30px !important;
+      padding: 8px 16px !important;
+      background-color: #03a9f4 !important;
+      font-size: 1rem !important;
+      transition: all 0.3s ease !important;
+      width: 100%;
+    }
+
+    .view-button:hover {
+      background-color: #0288d1 !important;
+      box-shadow: 0 8px 16px rgba(3, 169, 244, 0.25) !important;
+      transform: translateY(-2px);
+    }
+
+    .action-icons {
+      display: flex;
+      gap: 12px;
+      align-self: flex-end;
+    }
+
+    .share-button, .favorite-button {
+      color: #757575;
+      width: 40px !important;
+      height: 40px !important;
+    }
+
+    .favorite-button:hover {
+      color: #d32f2f;
+    }
+
+    .seats-availability {
+      margin-top: 16px;
+      margin-bottom: 8px;
+    }
+
+    .seats-progress {
+      height: 6px !important;
+      border-radius: 3px !important;
+      margin-top: 8px !important;
+    }
+
+    .seats-progress .MuiLinearProgress-barColorPrimary {
+      background-color: #03a9f4 !important;
+    }
+
+    @media (max-width: 960px) {
+      .deals-container {
+        padding: 24px;
+      }
+
+      .deals-header {
+        padding: 32px 24px;
+        margin-bottom: 32px;
+      }
+
+      .deals-title {
+        font-size: 2.2rem !important;
+      }
+
+      .deals-subtitle {
+        font-size: 1.1rem !important;
+      }
+
+      .deals-toolbar {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .sort-options {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .sort-label {
+        display: none;
+      }
+
+      .sort-button {
+        flex: 1;
+        min-width: 0 !important;
+        padding: 8px 12px !important;
+      }
+
+      .filter-button {
+        align-self: flex-end;
+        margin-top: -48px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .deals-container {
+        padding: 16px;
+      }
+
+      .deals-header {
+        padding: 24px 16px;
+        margin-bottom: 24px;
+      }
+
+      .deals-title {
+        font-size: 1.8rem !important;
+      }
+
+      .deals-subtitle {
+        font-size: 1rem !important;
+      }
+
+      .sort-button {
+        font-size: 0.9rem !important;
+        padding: 6px 10px !important;
+      }
+
+      .deal-route {
+        font-size: 1.2rem !important;
+      }
+
+      .discounted-price {
+        font-size: 1.2rem !important;
+      }
+
+      .deal-actions {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .view-button {
+        width: 100%;
+      }
+
+      .action-icons {
+        align-self: flex-end;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .deal-card {
+      animation: fadeIn 0.5s ease-out;
+      animation-fill-mode: both;
+    }
+
+    .deal-card:nth-child(2) {
+      animation-delay: 0.1s;
+    }
+
+    .deal-card:nth-child(3) {
+      animation-delay: 0.2s;
+    }
+
+    .deal-card:nth-child(4) {
+      animation-delay: 0.3s;
+    }
+
+    .deal-card:nth-child(5) {
+      animation-delay: 0.4s;
+    }
+
+    .MuiButton-root:focus-visible,
+    .MuiIconButton-root:focus-visible {
+      outline: 2px solid #03a9f4 !important;
+      outline-offset: 2px !important;
+    }
+
+    .MuiChip-icon {
+      margin-right: 0 !important;
+      margin-left: 4px !important;
+    }
+
+    .MuiButton-startIcon {
+      margin-right: 0 !important;
+      margin-left: 8px !important;
+    }
+
+    .MuiRating-root {
+      direction: ltr !important;
+    }
+
+    .sold-out-badge {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 2;
+      backdrop-filter: blur(2px);
+    }
+
+    .sold-out-text {
+      background-color: #d32f2f;
+      color: white;
+      padding: 10px 24px;
+      border-radius: 8px;
+      font-weight: 700;
+      transform: rotate(-10deg);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+      font-size: 1.2rem !important;
+      letter-spacing: 1px;
+    }
+
+    .filter-menu {
+      padding: 24px;
+    }
+
+    .filter-menu .MuiTypography-root {
+      color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiSlider-root {
+      color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiSwitch-colorPrimary.Mui-checked {
+      color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiSwitch-colorPrimary.Mui-checked + .MuiSwitch-track {
+      background-color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiChip-root.MuiChip-colorPrimary {
+      background-color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiChip-root.MuiChip-outlined {
+      border-color: #1976d2 !important;
+      color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiButton-contained {
+      background-color: #1976d2 !important; 
+    }
+
+    .filter-menu .MuiButton-contained:hover {
+      background-color: #0d47a1 !important; 
+    }
+
+    ::-webkit-scrollbar {
+      width: 12px;
+      height: 12px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #1976d2; 
+      border-radius: 10px;
+      border: 3px solid #f1f1f1;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #0d47a1; 
+    }

@@ -32,7 +32,6 @@ import {
   Fab
 } from '@mui/material';
 
-// Icons
 import AddIcon from '@mui/icons-material/Add';
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -43,7 +42,6 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import LuggageIcon from '@mui/icons-material/Luggage';
 import RefreshIcon from '@mui/icons-material/Refresh';
 
-// Styles
 import './thisFlight.css';
 
 export const ThisFlight = () => {
@@ -283,7 +281,6 @@ export const ThisFlight = () => {
                     </TableContainer>
                 )}
 
-                {/* Mobile Add Button */}
                 <Fab 
                     color="primary" 
                     className="mobile-add-button"
@@ -291,7 +288,6 @@ export const ThisFlight = () => {
                 >
                     <AddIcon />
                 </Fab>
-                {/* Confirmation Dialog */}
                 <Dialog
                     open={confirmDelete !== null}
                     onClose={() => setConfirmDelete(null)}
@@ -323,10 +319,8 @@ export const ThisFlight = () => {
                     </DialogActions>
                 </Dialog>
 
-                {/* Add/Edit Flight Form */}
                 {add && <AddThisFlight addFlight={addFlight} update={update} close={close} thisFlt={flit} />}
                 
-                {/* Add Class to Flight Forms */}
                 {(addCTF === 1 && oneThisFlight !== null) && 
                     <AddClassToFlight 
                         addCTFlight={addCTFlight} 

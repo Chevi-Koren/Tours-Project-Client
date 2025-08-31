@@ -1,4 +1,3 @@
-/* ===== GENERAL STYLES ===== */
 :root {
   --primary: #1e3a8a;
   --secondary: #0ea5e9;
@@ -28,7 +27,6 @@
   font-family: 'Rubik', sans-serif;
 }
 
-/* ===== APP BAR STYLES ===== */
 .app-bar {
   background: var(--card-bg) !important;
   backdrop-filter: blur(10px);
@@ -47,7 +45,6 @@
   height: 70px;
 }
 
-/* ===== LOGO STYLES ===== */
 .logo-container {
   display: flex;
   align-items: center;
@@ -118,7 +115,6 @@
   color: var(--primary);
 }
 
-/* ===== NAVIGATION BUTTONS ===== */
 .nav-buttons {
   display: flex;
   gap: 0.5rem;
@@ -157,7 +153,6 @@
   left: 10%;
 }
 
-/* ===== TOOLBAR ACTIONS ===== */
 .toolbar-actions {
   display: flex;
   align-items: center;
@@ -288,7 +283,6 @@
   left: 100%;
 }
 
-/* ===== USER MENU ===== */
 .user-menu-paper {
   border-radius: 16px;
   overflow: hidden;
@@ -379,7 +373,6 @@
   background-color: rgba(225, 29, 72, 0.05) !important;
 }
 
-/* ===== DRAWER STYLES ===== */
 .drawer-paper {
   width: 300px;
   border-radius: 0 20px 20px 0;
@@ -551,7 +544,6 @@
   color: var(--text-secondary);
 }
 
-/* ===== MAIN CONTENT ===== */
 .main-content {
   flex-grow: 1;
   padding: 2rem 0;
@@ -559,7 +551,6 @@
   margin: 0 auto;
 }
 
-/* ===== FOOTER ===== */
 .footer {
   background-color: var(--primary);
   color: white;
@@ -654,7 +645,7 @@
 .footer-title::after {
   content: '';
   position: absolute;
-  bottom: -8px;
+  bottom: -12px;
   right: 0;
   width: 40px;
   height: 3px;
@@ -762,7 +753,6 @@
   transform: translateY(-3px);
 }
 
-/* ===== ANIMATIONS ===== */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -793,7 +783,6 @@
   animation: slideIn 0.3s ease-out forwards;
 }
 
-/* ===== GLASSMORPHISM EFFECTS ===== */
 .app-bar {
   background: rgba(255, 255, 255, 0.8) !important;
   backdrop-filter: blur(10px);
@@ -804,7 +793,6 @@
   backdrop-filter: blur(10px);
 }
 
-/* ===== RESPONSIVE ADJUSTMENTS ===== */
 @media (max-width: 600px) {
   .toolbar {
     padding: 0.5rem 1rem;
@@ -848,7 +836,6 @@
   }
 }
 
-/* ===== DARK MODE SUPPORT ===== */
 @media (prefers-color-scheme: dark) {
   :root {
     --primary: #1e40af;
@@ -917,7 +904,6 @@
   }
 }
 
-/* ===== CUSTOM SCROLLBAR ===== */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -935,7 +921,6 @@
   background: #0284c7;
 }
 
-/* ===== ADDITIONAL EFFECTS ===== */
 .ripple {
   position: absolute;
   border-radius: 50%;
@@ -952,7 +937,6 @@
   }
 }
 
-/* ===== HOVER EFFECTS ===== */
 .hover-lift {
   transition: transform 0.3s ease;
 }
@@ -961,7 +945,6 @@
   transform: translateY(-4px);
 }
 
-/* ===== CUSTOM FONT LOADING ===== */
 @font-face {
   font-family: 'Rubik';
   font-style: normal;
@@ -983,7 +966,6 @@
   src: url('https://fonts.gstatic.com/s/rubik/v21/iJWZBXyIfDnIV5PNhY1KTN7Z-Yh-4I-FV0UzdYPFkaVNA6w.woff') format('woff');
 }
 
-/* ===== PRINT STYLES ===== */
 @media print {
   .app-bar,
   .footer,
@@ -1007,7 +989,6 @@
   }
 }
 
-/* ===== ACCESSIBILITY IMPROVEMENTS ===== */
 .visually-hidden {
   position: absolute;
   width: 1px;
@@ -1024,7 +1005,6 @@
   outline-offset: 2px;
 }
 
-/* ===== ADDITIONAL ANIMATIONS ===== */
 @keyframes float {
   0% {
     transform: translateY(0px);
@@ -1041,7 +1021,6 @@
   animation: float 6s ease-in-out infinite;
 }
 
-/* ===== UTILITY CLASSES ===== */
 .text-gradient {
   background: var(--gradient-primary);
   -webkit-background-clip: text;
@@ -1073,7 +1052,6 @@
   box-shadow: var(--shadow-lg);
 }
 
-/* ===== THEME TRANSITIONS ===== */
 body {
   transition: background-color 0.3s ease, color 0.3s ease;
 }

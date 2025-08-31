@@ -34,7 +34,7 @@ import ConfirmationNumberIcon from '@mui/icons-material/ConfirmationNumber';
 import LuggageIcon from '@mui/icons-material/Luggage';
 import PaidIcon from '@mui/icons-material/Paid';
 import CloseIcon from '@mui/icons-material/Close';
-import "./OrderDetail.css";
+import "./orderDetail.css";
 
 export const OrderDetail = () => {
   const ordersByCustomer = useSelector(state => state.flights.ordersByCustomer);
@@ -42,15 +42,14 @@ export const OrderDetail = () => {
   const [orderDetailOpen, setOrderDetailOpen] = useState(false);
   const [orderDetail, setOrderDetail] = useState([]);
   const [selectedOrder, setSelectedOrder] = useState(null);
-  const [loading, setLoading] = useState(true); // מצב טעינה חדש
+  const [loading, setLoading] = useState(true); 
   const dispatch = useDispatch();
 
   useEffect(() => {
 
-    setLoading(true); // מתחיל טעינה
+    setLoading(true); 
     dispatch(getAllOrdersByCustomerThunk(userId))
       .then(() => {
-        // מחכה מעט לפני הסרת הטעינה כדי למנוע הבהוב מהיר
         setTimeout(() => setLoading(false), 800);
       })
       .catch(() => {
@@ -73,7 +72,6 @@ export const OrderDetail = () => {
     return new Date(dateString).toLocaleDateString('he-IL', options);
   };
 
-  // אם בטעינה, מציג אנימציית טעינה
   if (loading) {
     return (
       <Container className="order-detail-container">
@@ -149,7 +147,6 @@ export const OrderDetail = () => {
         )}
       </Paper>
 
-      {/* Order Details Dialog */}
       <Dialog
         open={orderDetailOpen}
         onClose={handleCloseDetails}
@@ -246,7 +243,7 @@ export const OrderDetail = () => {
           ) : (
             <Typography variant="body1" align="center">
 
-              אין פרטי הזמנה זמינו
+              אין פרטי הזמנה זמינים
             </Typography>
           )}
         </DialogContent>

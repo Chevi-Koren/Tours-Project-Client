@@ -21,7 +21,6 @@ import {
   Stack
 } from '@mui/material';
 
-// Icons
 import FlightTakeoffIcon from '@mui/icons-material/FlightTakeoff';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import SupportAgentIcon from '@mui/icons-material/SupportAgent';
@@ -48,9 +47,7 @@ import './HomeAbout.css';
 import { useNavigate } from 'react-router-dom';
 
 
-// פונקציה ליצירת תמונות מקומיות עם צבע ואות ראשונה
 const placeholderImage = (name, color) => {
-  // יוצר SVG פשוט עם האות הראשונה של השם על רקע צבעוני
   const letter = name.charAt(0);
   const svg = `
     <svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
@@ -59,7 +56,6 @@ const placeholderImage = (name, color) => {
     </svg>
   `;
   
-  // ממיר את ה-SVG ל-Data URL
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 };
 
@@ -74,7 +70,6 @@ export const HomeAbout = () => {
   const isTablet = useMediaQuery(theme.breakpoints.down('md'));
   const isLargeScreen = useMediaQuery(theme.breakpoints.up('lg'));
   
-  // Refs for scroll animations
   const aboutRef = useRef(null);
   const featuresRef = useRef(null);
   const destinationsRef = useRef(null);
@@ -82,7 +77,6 @@ export const HomeAbout = () => {
   const statsRef = useRef(null);
   const partnersRef = useRef(null);
   
-  // State for animations
   const [aboutVisible, setAboutVisible] = useState(false);
   const [featuresVisible, setFeaturesVisible] = useState(false);
   const [destinationsVisible, setDestinationsVisible] = useState(false);
@@ -90,10 +84,8 @@ export const HomeAbout = () => {
   const [statsVisible, setStatsVisible] = useState(false);
   const [partnersVisible, setPartnersVisible] = useState(false);
   
-  // State for destination carousel
   const [currentDestination, setCurrentDestination] = useState(0);
   
-  // Popular destinations data with local images
   const destinations = [
     {
       city: "פריז",
@@ -125,26 +117,7 @@ export const HomeAbout = () => {
       tags: ["קניות", "אורבני", "תרבות"],
       color: "#ff9800"
     },
-    // {
-    //   city: "ברצלונה",
-    //   country: "ספרד",
-    //   image: "/תמונות מדינות/צרפת.png",
-    //   description: "אדריכלות, חופים וטאפאס",
-    //   price: "החל מ-349€",
-    //   rating: 4.6,
-    //   tags: ["חופים", "אוכל", "אדריכלות"],
-    //   color: "#009688"
-    // },
-    // {
-    //   city: "בנגקוק",
-    //   country: "תאילנד",
-    //   image: "יון.png",
-    //   description: "מקדשים, שווקים ואוכל רחוב מדהים",
-    //   price: "החל מ-649€",
-    //   rating: 4.5,
-    //   tags: ["אסיה", "אוכל", "תרבות"],
-    //   color: "#673ab7"
-    // },
+
     {
       city: "רומא",
       country: "איטליה",
@@ -247,7 +220,6 @@ export const HomeAbout = () => {
     }
   ];
   
-  // Features data with colors
   const features = [
     {
       icon: <FlightTakeoffIcon fontSize="large" />,
@@ -275,7 +247,6 @@ export const HomeAbout = () => {
     }
   ];
   
-  // Testimonials data
   const testimonials = [
     {
       name: "שרה כהן",
@@ -303,7 +274,6 @@ export const HomeAbout = () => {
     }
   ];
 
-  // About us content
   const aboutContent = {
     title: "אודות חברת התיירות שלנו",
     subtitle: "גלובוס - מובילים את עולם התיירות מאז 2010",
@@ -317,11 +287,6 @@ export const HomeAbout = () => {
     image: "/images/about/company.jpg"
   };
 
-
-
-
-  
-  // Scroll animation effect
   useEffect(() => {
     const observerOptions = {
       root: null,
@@ -362,7 +327,7 @@ export const HomeAbout = () => {
     };
   }, []);
   
-  // Handle destination carousel navigation
+
   const nextDestination = () => {
     setCurrentDestination((prev) => 
       prev === destinations.length - (isTablet ? 1 : isLargeScreen ? 4 : 3) ? 0 : prev + 1
@@ -375,21 +340,18 @@ export const HomeAbout = () => {
     );
   };
   
-  // Visible destinations based on screen size
+
   const visibleDestinations = isTablet 
     ? destinations.slice(currentDestination, currentDestination + 1)
     : isLargeScreen
       ? destinations.slice(currentDestination, currentDestination + 4)
       : destinations.slice(currentDestination, currentDestination + 3);
 
-  // Placeholder images for demo
-
 
 const navigate = useNavigate();
 
   return (
     <Box className="home-about-container">
-      {/* Hero Section */}
       <Box className="hero-section">
         <Container maxWidth="xl">
           <Grid container spacing={4} alignItems="center" className="hero-grid">
@@ -430,10 +392,6 @@ const navigate = useNavigate();
             <Grid item xs={12} md={6} >
               <Zoom in={true} timeout={1000}>
                 <Box className="hero-image-wrapper">
-                  {/* <Box 
-                    component="img"
-                    className="hero-image"
-                  /> */}
                   <Box className="floating-card-container">
                     <Paper elevation={6} className="floating-card">
                       <Box className="floating-card-content">
@@ -474,7 +432,6 @@ const navigate = useNavigate();
         </Container>
       </Box>
 
-      {/* Stats Section */}
       <Box className="stats-banner" ref={statsRef}>
         <Container maxWidth="xl">
           <Fade in={statsVisible} timeout={800}>
@@ -512,7 +469,6 @@ const navigate = useNavigate();
         </Container>
       </Box>
 
-      {/* About Us Section */}
       <Box className="about-section" ref={aboutRef}>
         <Container maxWidth="xl">
           <Grid container spacing={6} alignItems="center">
@@ -541,23 +497,10 @@ const navigate = useNavigate();
                 </Box>
               </Fade>
             </Grid>
-            
-            {/* <Grid item xs={12} md={6}>
-              <Zoom in={aboutVisible} timeout={1000}>
-                 <Box className="about-image-container">
-                  <Box 
-                    component="img"
-                   
-                    className="about-image"
-                  />
-                </Box> 
-              </Zoom>
-            </Grid> */}
           </Grid>
         </Container>
       </Box>
 
-      {/* Features Section */}
       <Box className="features-section" ref={featuresRef}>
         <Container maxWidth="xl">
           <Box className="section-header">
@@ -603,7 +546,6 @@ const navigate = useNavigate();
         </Container>
       </Box>
 
-      {/* Popular Destinations */}
       <Box className="destinations-section" ref={destinationsRef}>
         <Container maxWidth="xl">
           <Box className="section-header">
@@ -650,7 +592,7 @@ const navigate = useNavigate();
                       <CardMedia
                         component="img"
                         height="220"
-                         image={destination.image} // הוספת ה-image prop שחסר
+                         image={destination.image}
                         alt={destination.city}
                         className="destination-image"
                       />
@@ -727,7 +669,6 @@ const navigate = useNavigate();
         </Container>
       </Box>
 
-      {/* CTA Section */}
       <Box className="cta-section">
         <Container maxWidth="xl">
           <Grid container spacing={4} alignItems="center" justifyContent="center">
@@ -748,7 +689,6 @@ const navigate = useNavigate();
                 הצטרפו לאלפי נוסעים מרוצים שמצאו את הטיסות המושלמות שלהם איתנו
               </Typography>
               
-              {/* כפתורי קריאה לפעולה */}
               <Box sx={{ display: 'flex', gap: 2, justifyContent: 'center', flexWrap: 'wrap' }}>
 
                 
@@ -775,7 +715,6 @@ const navigate = useNavigate();
         </Container>
       </Box>
 
-      {/* Testimonials */}
       <Box className="testimonials-section" ref={testimonialsRef}>
         <Container maxWidth="xl">
           <Box className="section-header">

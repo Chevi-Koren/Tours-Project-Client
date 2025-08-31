@@ -1,4 +1,3 @@
-/* Main container */
 .login-container {
     display: flex;
     justify-content: center;
@@ -9,7 +8,6 @@
     direction: rtl;
   }
   
-  /* Login card */
   .login-card {
     width: 100%;
     overflow: hidden;
@@ -21,7 +19,6 @@
     padding: 0 !important;
   }
   
-  /* Form container */
   .login-form-container {
     padding: 32px;
     background-color: #ffffff;
@@ -33,7 +30,6 @@
     height: 100%;
   }
   
-  /* Header */
   .login-header {
     display: flex;
     justify-content: space-between;
@@ -54,7 +50,6 @@
     margin-bottom: 24px;
   }
   
-  /* Form fields */
   .form-fields {
     display: flex;
     flex-direction: column;
@@ -66,7 +61,6 @@
     border-radius: 8px;
   }
   
-  /* Form options */
   .form-options {
     display: flex;
     justify-content: space-between;
@@ -85,7 +79,6 @@
     text-decoration: underline;
   }
   
-  /* Login button */
   .login-button {
     padding: 12px !important;
     border-radius: 8px !important;
@@ -95,7 +88,6 @@
     background-color: #1976d2 !important;
   }
   
-  /* Register link */
   .register-link {
     display: flex;
     justify-content: center;
@@ -109,12 +101,10 @@
     font-weight: 600 !important;
   }
   
-  /* Divider */
   .divider {
     margin: 16px 0 !important;
   }
   
-  /* Social login */
   .social-login {
     display: flex;
     justify-content: center;
@@ -139,7 +129,6 @@
     border-color: #4267B2 !important;
   }
   
-  /* Info container (right side) */
   .login-info-container {
     background: linear-gradient(135deg, #1976d2, #0d47a1);
     color: white;
@@ -163,7 +152,6 @@
     opacity: 0.9;
   }
   
-  /* Features */
   .info-features {
     display: flex;
     flex-direction: column;
@@ -187,7 +175,6 @@
     font-weight: bold;
   }
   
-  /* Responsive adjustments */
   @media (max-width: 900px) {
     .login-form-container {
       padding: 24px;
@@ -226,7 +213,6 @@
     }
   }
   
-  /* Animation for card */
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -242,20 +228,17 @@
     animation: fadeIn 0.5s ease-out;
   }
   
-  /* Focus styles */
   .form-field .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline {
     border-color: #1976d2;
     border-width: 2px;
   }
   
-  /* Error styles */
   .form-field .MuiFormHelperText-root.Mui-error {
     font-size: 0.75rem;
     margin-top: 4px;
     margin-right: 14px;
   }
   
-  /* Button hover effects */
   .login-button:hover {
     background-color: #1565c0 !important;
   }
@@ -268,7 +251,6 @@
     background-color: rgba(66, 103, 178, 0.05) !important;
   }
   
-  /* Custom checkbox */
   .remember-me input[type="checkbox"] {
     appearance: none;
     -webkit-appearance: none;

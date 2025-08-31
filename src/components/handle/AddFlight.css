@@ -15,11 +15,10 @@
     color: #1976d2;
   }
   
-  /* עדכון כפתור הסגירה כדי שיהיה גלוי תמיד */
   .close-button {
     margin-right: -12px !important;
-    background-color: rgba(211, 47, 47, 0.1) !important; /* רקע קבוע */
-    color: #d32f2f !important; /* צבע קבוע */
+    background-color: rgba(211, 47, 47, 0.1) !important; 
+    color: #d32f2f !important; 
     border-radius: 50% !important;
     width: 36px !important;
     height: 36px !important;
@@ -27,8 +26,8 @@
   }
   
   .close-button:hover {
-    background-color: rgba(211, 47, 47, 0.2) !important; /* רקע כהה יותר בהובר */
-    transform: scale(1.05) !important; /* אפקט קל של הגדלה בהובר */
+    background-color: rgba(211, 47, 47, 0.2) !important; 
+    transform: scale(1.05) !important; 
   }
   
   .dialog-content {
@@ -55,17 +54,14 @@
     text-align: right;
   }
   
-  /* הוספת צבע כשעומדים על האינפוט */
   .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline {
     border-color: #1976d2 !important;
   }
   
-  /* צבע רקע כשעומדים על האינפוט */
   .MuiOutlinedInput-root:hover {
     background-color: rgba(25, 118, 210, 0.04) !important;
   }
   
-  /* צבע רקע כשהאינפוט במיקוד */
   .MuiOutlinedInput-root.Mui-focused {
     background-color: rgba(25, 118, 210, 0.08) !important;
   }
@@ -92,7 +88,6 @@
     color: #9e9e9e !important;
   }
   
-  /* For responsive design */
   @media (max-width: 600px) {
     .dialog-content {
       padding: 16px !important;

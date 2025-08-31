@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import "./pay.css";
 
-// MUI imports
 import {
   Container,
   Typography,
@@ -41,7 +40,6 @@ export const Pay = () => {
     const price = useSelector(state => state.flights.price);
     const userName = useSelector(state => state.users.user);
     
-    // Payment form states
     const [creditCardNum, setCreditCardNum] = useState("");
     const [date, setDate] = useState("");
     const [cvc, setCvc] = useState("");
@@ -51,7 +49,6 @@ export const Pay = () => {
     const [installments, setInstallments] = useState("1");
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     
-    // Format credit card number with spaces
     const formatCreditCardNumber = (value) => {
         const v = value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
         const matches = v.match(/\d{4,16}/g);
@@ -95,26 +92,25 @@ export const Pay = () => {
             date: formattedDate, 
             ordersDetails: ordersDetailToPay
         };
-        
-        
-         dispatch(addOrderThunk(orderToPay));
-        
-        // Simulate API call
-        setTimeout(() => {
-            setIsProcessing(false);
-            setSnackbarOpen(true);
-            // Redirect after showing success message
-            setTimeout(() => navigate("/orderAfterPay"), 1500);
-        }, 1500);
+
+        dispatch(addOrderThunk(orderToPay))
+            .unwrap()
+            .then(() => {
+                setIsProcessing(false);
+                setSnackbarOpen(true);
+                navigate("/orderAfterPay");
+            })
+            .catch(() => {
+                setIsProcessing(false);
+                setSnackbarOpen(true);
+            });
     };
 
-    // Validations
     const isValidCreditCard = creditCardNum.replace(/\s/g, '').length === 16;
     const isValidDate = date !== "";
     const isValidCvc = cvc.length === 3;
     const isValidName = cardholderName.trim().length > 3;
     
-    // Form validation based on payment method
     const isFormValid = 
         paymentMethod === "creditCard" 
             ? (isValidCreditCard && isValidDate && isValidCvc && isValidName) 

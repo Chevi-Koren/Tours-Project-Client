@@ -5,7 +5,6 @@ export const getThisFlightBySrcdesdateThunk = createAsyncThunk('fetchThisFlightB
         try {
             const response = await fetch(`http://localhost:5041/api/ThisFlight/GetById/${src}/${des}/${date}`);
             const data = await response.json();
-            console.log(data);
             return data;
         } catch (error) {
             throw new Error("Faild to find getByDesSrcDate");

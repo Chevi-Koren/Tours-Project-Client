@@ -35,7 +35,7 @@ export const AddThisFlight = (props) => {
         time: '', 
         date: '', 
         flightId: 0,
-        id: 0 // הוספת שדה ID לשמירת המזהה בעת עריכה
+        id: 0
     });
     const [tf, setTf] = useState("");
     const [open, setOpen] = useState(false);
@@ -43,14 +43,13 @@ export const AddThisFlight = (props) => {
 
     useEffect(() => {
         dispatch(getAllFlightThunk());
-        // עדכון מלא של האובייקט כולל ID בעת עריכה
         if (isEditMode) {
             setTFlt({
                 priceToOverLoad: thisFlt.priceToOverLoad,
                 time: thisFlt.time,
                 date: thisFlt.date,
                 flightId: thisFlt.flightId || thisFlt.flight?.id,
-                id: thisFlt.id // שמירת המזהה
+                id: thisFlt.id 
             });
         }
         setOpen(true);
@@ -63,12 +62,11 @@ export const AddThisFlight = (props) => {
 
     const handleSubmit = () => {
         if (isEditMode) {
-            // וידוא שכל השדות הנדרשים קיימים באובייקט העדכון
             const updateData = {
                 ...tflt,
-                id: thisFlt.id, // וידוא שה-ID נשמר
+                id: thisFlt.id, 
                 flightId: thisFlt.flightId || thisFlt.flight?.id,
-                priceToOverLoad: parseInt(tflt.priceToOverLoad) // המרה למספר
+                priceToOverLoad: parseInt(tflt.priceToOverLoad)
             };
             update(updateData);
         } else {
@@ -89,10 +87,8 @@ export const AddThisFlight = (props) => {
 
     const isFormValid = () => {
         if (isEditMode) {
-            // עריכה - בדיקה שיש תאריך, שעה ומחיר
             return tflt.date && tflt.time && tflt.priceToOverLoad !== undefined && tflt.priceToOverLoad !== null;
         } else {
-            // הוספה - בדיקה שיש טיסה נבחרת, תאריך, שעה ומחיר
             return tf && tflt.date && tflt.time && tflt.priceToOverLoad !== undefined && tflt.priceToOverLoad !== null;
         }
     };

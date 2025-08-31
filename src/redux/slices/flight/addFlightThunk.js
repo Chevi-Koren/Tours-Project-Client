@@ -13,7 +13,6 @@ export const addFlightThunk = createAsyncThunk('fetchAddFlightThunk',
         )
         if(response.ok){
             let data =  await response.json();
-            console.log(data);
             return data;
         }
           else{

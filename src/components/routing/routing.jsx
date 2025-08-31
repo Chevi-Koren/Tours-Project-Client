@@ -22,7 +22,7 @@ import { Pay } from "../cart/pay"
 import { Customer } from "../handle/customer"
 import { Orders } from "../handle/orders"
 import { Order } from "../cart/order"
-import NotFound from "../NotFound/NotFound"
+import NotFound from "../notFound/notFound"
 
 
 export const Routing = () => {

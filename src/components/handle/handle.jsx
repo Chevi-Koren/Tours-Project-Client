@@ -31,7 +31,6 @@ export const Handle = () => {
   const [customer, setCustomer] = useState(false);
   const [orders, setOrders] = useState(false);
 
-  // Calculate the active tab index based on state
   const getActiveTabIndex = () => {
     if (des) return 0;
     if (flt) return 1;
@@ -43,7 +42,6 @@ export const Handle = () => {
   };
 
   const handleTabChange = (event, newValue) => {
-    // Reset all states
     setFlt(false);
     setDes(false);
     setThisFlt(false);
@@ -51,7 +49,6 @@ export const Handle = () => {
     setCustomer(false);
     setOrders(false);
 
-    // Set the active state based on tab index
     switch (newValue) {
       case 0:
         setDes(true);

@@ -13,7 +13,6 @@ import { ChatBot } from './components/ChatBot/ChatBot';
 function App() {
   return (
     <div >
-        {/* <Routing /> */}
         <Home/>
         <ChatBot />
     </div>

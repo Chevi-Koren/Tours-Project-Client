@@ -53,7 +53,6 @@
     background-color: rgba(25, 118, 210, 0.08);
   }
   
-  /* Dialog Styles */
   .order-dialog {
     direction: rtl;
   }
@@ -108,7 +107,6 @@
     padding: 6px 20px !important;
   }
   
-  /* For responsive design */
   @media (max-width: 768px) {
     .order-paper {
       padding: 1.5rem;
@@ -153,7 +151,6 @@
     }
   }
 
-/* הוספת סגנונות לאנימציית טעינה */
 .loading-container {
   display: flex;
   justify-content: center;
@@ -177,7 +174,6 @@
   }
 }
 
-/* אנימציית הופעה הדרגתית לתוכן */
 .fade-in {
   animation: fadeIn 0.5s ease-in-out;
 }

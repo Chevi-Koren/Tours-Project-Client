@@ -1,71 +1,117 @@
-# Getting Started with Create React App
+# Tours Project Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, responsive web application for flight booking and travel management, designed for travel agencies and airlines. Built with React, Redux, and Material-UI, the project provides a seamless user experience for searching, booking, and managing flights.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features
 
-### `npm start`
+- **User Registration & Login:**  
+  Multi-step registration, secure login, session management, and user profile.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Flight Search & Booking:**  
+  Browse available flights, filter by class, date, and destination, and add flights to cart.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Calendar View:**  
+  Visual monthly calendar with flight availability, highlighting current and out-of-month days.
 
-### `npm test`
+- **Cart & Order Management:**  
+  View, edit, and confirm flight orders. Integrated payment process with error handling.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Order Summary & PDF Export:**  
+  Professional English PDF generation of order details for download or print.
 
-### `npm run build`
+- **ChatBot Assistant:**  
+  Interactive chatbot for quick help, navigation, and FAQs.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Responsive Design:**  
+  Fully optimized for desktop and mobile devices.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- **Admin Features:**  
+  (Optional) System management for admins: manage flights, deals, and users.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## Technologies
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Frontend:** React, Redux, React Router, Material-UI
+- **State Management:** Redux Toolkit
+- **Styling:** CSS, Material-UI theming
+- **PDF Generation:** jsPDF
+- **Session Management:** sessionStorage
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Getting Started
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Prerequisites
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Node.js (v16+ recommended)
+- npm or yarn
 
-## Learn More
+### Installation
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Chevi-Koren/Tours-Project-Client.git
+   cd tours-project-client
+   ```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+2. Install dependencies:
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
 
-### Code Splitting
+3. Start the development server:
+   ```bash
+   npm start
+   # or
+   yarn start
+   ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## Project Structure
 
-### Making a Progressive Web App
+```
+src/
+  components/      # React components (Calendar, Cart, LogIn, Home, ChatBot, etc.)
+  redux/           # Redux slices, thunks, and store configuration
+  assets/          # Images, icons, and static files
+  App.js           # Main app component and routing
+  index.js         # Entry point
+public/
+  logo-globus.html # Static logo or branding
+.gitignore         # Ignored files and folders
+README.md          # Project documentation
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **Branding:**  
+  Update `public/logo-globus.html` and other assets for your agency.
+- **API Integration:**  
+  Connect to your backend for real-time flight data and user management.
+- **Admin Panel:**  
+  Extend admin features for flight and user management.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## Contributing
 
-### `npm run build` fails to minify
+Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
- # Mali came
+---
+
+## Contact
+
+For questions or support, please contact: chevi4564@gmail.com
+
+---
+
+**TOURS – Your Journey, Our Passion**

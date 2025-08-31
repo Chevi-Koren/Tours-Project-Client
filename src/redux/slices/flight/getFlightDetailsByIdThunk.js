@@ -7,7 +7,6 @@ export const getFlightDetailsByIdThunk = createAsyncThunk('fetchFlightDetailsByI
             const data = await response.json();
             return data;
         } catch (error) {
-            console.log("Faild to find FlightDetails");
             throw new Error("Faild to find FlightDetails");
         }
     }

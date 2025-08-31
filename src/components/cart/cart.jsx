@@ -5,7 +5,6 @@ import { changeNOS, changeWight, deleteOrder, savePriceToPay } from "../../redux
 import { useNavigate } from "react-router-dom";
 import "./cart.css";
 
-// MUI imports
 import { 
   Table, 
   TableBody, 
@@ -46,7 +45,6 @@ export const Cart = () => {
     const [snackbarOpen, setSnackbarOpen] = useState(false);
     const [snackbarMessage, setSnackbarMessage] = useState("");
     
-    // Calculate total price on component mount
     useEffect(() => {
         let p = 0;
         dispatch(loct("/cart"));
@@ -56,7 +54,6 @@ export const Cart = () => {
         setPrice(p);
     }, [dispatch, order]);
     
-    // Recalculate price when order changes
     useEffect(() => {
         let p = 0;
         order.forEach(element => {

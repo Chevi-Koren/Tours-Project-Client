@@ -1,3 +1,4 @@
+
 import { createSlice } from "@reduxjs/toolkit";
 import { logInUserThunk } from "./logInUserThunk";
 import { addUserThunk } from "./addUserThunk";
@@ -61,9 +62,11 @@ export const userSlice = createSlice({
             sessionStorage.removeItem('user');
             sessionStorage.setItem('userWithoutOutId', JSON.stringify({ firstName: '', lastName: '', email: '', phone: '', password: '' }));
         },
+        setStatus: (state, action) => {
+            state.status = false;
+        },
         setUserId: (state, action) => {
             state.userId = action.payload;
-            // Save to session storage
             sessionStorage.setItem('userId', action.payload.toString());
         },
     },
@@ -117,4 +120,4 @@ export const userSlice = createSlice({
     }
 });
 
-export const { logIn, loct, signOut, setUserId } = userSlice.actions;
+export const { logIn, loct, signOut, setUserId, setStatus } = userSlice.actions;

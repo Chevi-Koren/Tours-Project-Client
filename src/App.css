@@ -1,6 +1,4 @@
-/* *{
-  text-align: center;
-} */
+
 .productStyle{
   align-items: center;
   font-style: italic;
@@ -40,12 +38,3 @@ img{
   display: flex;
   flex-direction: row;
 }
-/* .bskt2
-{
-  color: cadetblue;
-  align-items: center;
-  font-style: italic;
-  display: flex;
-  flex-direction:row;
-  margin: 20px;
-} */

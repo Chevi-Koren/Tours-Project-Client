@@ -1,4 +1,84 @@
-/* Calendar Container */
+.day-content {
+  height: 100%;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  position: relative;
+}
+.calendar-container {
+  background: #fff;
+  min-height: 100vh;
+  direction: rtl;
+  padding: 20px;
+  max-width: 1200px !important;
+}
+
+/* Today highlight */
+.today {
+  border-color: #ffb347 !important;
+  border-width: 5px !important;
+  box-shadow: 0 0 0 2.5px #ffb34755;
+  background: #fffde7 !important;
+}
+
+.day-number {
+  font-weight: bold;
+  text-decoration: underline;
+  text-decoration-color: currentColor;
+  margin-bottom: 2px !important; 
+
+}
+
+.today {
+  position: relative;
+}
+.calendar-day:nth-child(7n+1)   .day-number { color:crimson; }
+.calendar-day:nth-child(7n+2) .day-number { color: #e53935; }
+.calendar-day:nth-child(7n+3) .day-number { color: #00bfae; }
+.calendar-day:nth-child(7n+4) .day-number { color: #00838f; }
+.calendar-day:nth-child(7n+5) .day-number { color: #3949ab; }
+.calendar-day:nth-child(7n+6) .day-number { color: #8e24aa; }
+.calendar-day:nth-child(7n+7) .day-number { color: #aeea00; }
+.calendar-day:nth-child(7n+8) .day-number { color: ffd600; }
+.calendar-day:nth-child(7n+9) .day-number { color:mediumturquoise; }
+.calendar-day:nth-child(7n+10) .day-number { color: #c62828; }
+.calendar-day:nth-child(7n+11) .day-number { color: #f06292; }
+
+.calendar-day:hover .day-number {
+  background: #fafafa;
+  color: #333;
+}
+
+.flight-chip {
+  font-size: 1rem !important;
+  height: 28px !important;
+  border-radius: 10px !important;
+  cursor: pointer;
+  font-weight: 600 !important;
+  margin-bottom: 2px;
+  padding: 0 14px !important;
+  transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+  color: #fff !important;
+  box-shadow: 0 1px 6px rgba(100,181,246,0.10);
+}
+
+.calendar-day:nth-child(7n+1)   .day-number { color:crimson; }
+.calendar-day:nth-child(7n+2) .day-number { color: #e53935; }
+.calendar-day:nth-child(7n+3) .day-number { color: #00bfae; }
+.calendar-day:nth-child(7n+4) .day-number { color: #00838f; }
+.calendar-day:nth-child(7n+5) .day-number { color: #3949ab; }
+.calendar-day:nth-child(7n+6) .day-number { color: #8e24aa; }
+.calendar-day:nth-child(7n+7) .day-number { color: #aeea00; }
+.calendar-day:nth-child(7n+8) .day-number { color: #ffd600; }
+.calendar-day:nth-child(7n+9) .day-number { color:mediumturquoise; }
+.calendar-day:nth-child(7n+10) .day-number { color: #c62828; }
+.calendar-day:nth-child(7n+11) .day-number { color: #f06292; }
+.flight-chip:hover {
+  filter: brightness(1.08) contrast(1.1);
+  transform: scale(1.07);
+}
 .calendar-container {
     direction: rtl;
     padding: 20px;
@@ -12,7 +92,6 @@
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1) !important;
   }
   
-  /* Calendar Header */
   .calendar-header {
     display: flex;
     justify-content: space-between;
@@ -53,7 +132,6 @@
     background-color: #f5f5f5 !important;
   }
   
-  /* Days Header */
   .days-header {
     background-color: #f5f5f5;
     border-radius: 8px 8px 0 0;
@@ -67,13 +145,16 @@
     font-weight: 600 !important;
   }
   
-  /* Days Grid */
   .days-grid {
     border-radius: 0 0 8px 8px;
-    overflow: hidden;
   }
   
   .calendar-day {
+  overflow-y: auto;
+  max-height: 140px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
     width: 14.28% !important;
     aspect-ratio: 1;
     border: 1px solid #e0e0e0;
@@ -81,286 +162,62 @@
     transition: all 0.2s ease;
   }
   
-  .calendar-day:hover {
-    background-color: #f9f9f9;
-    transform: scale(1.02);
-    z-index: 1;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  .calendar-day {
+    width: 14.28% !important;
+    aspect-ratio: 1;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    transition: border-color 0.25s, box-shadow 0.2s, transform 0.2s;
+    background: #f7f7fa;
+    box-shadow: 0 1px 4px rgba(30,136,229,0.06);
+    margin: 2px;
+    min-height: 60px;
+    position: relative;
+    overflow: hidden;
   }
   
-  .day-content {
-    height: 100%;
-    padding: 8px;
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .day-number {
-    font-size: 14px !important;
-    margin-bottom: 4px !important;
-  }
-  
-  /* Today Highlight */
   .today {
     background-color: #e3f2fd;
     border: 2px solid #1976d2 !important;
   }
   
-  /* Different Month Days */
   .different-month {
     opacity: 0.5;
     background-color: #f5f5f5;
   }
   
-  /* Flights */
   .flights-container {
     display: flex;
     flex-direction: column;
     gap: 4px;
-    margin-top: auto;
+    margin-top: 8px;
     overflow-y: auto;
     max-height: 70%;
   }
   
   .flight-chip {
-    font-size: 12px !important;
-    height: 24px !important;
-    border-radius: 12px !important;
-    cursor: pointer;
-    transition: all 0.2s ease;
-  }
-  
-  .flight-chip:hover {
-    background-color: rgba(25, 118, 210, 0.1);
-    transform: translateY(-2px);
-  }
-  
-  /* Responsive adjustments */
-  @media (max-width: 768px) {
-    .calendar-header {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-    }
-    
-    .calendar-controls {
-      width: 100%;
-      justify-content: space-between;
-    }
-    
-    .day-name, .calendar-day {
-      padding: 8px 4px;
-    }
-    
-    .day-number {
-      font-size: 12px !important;
-    }
-    
-    .flight-chip {
-      font-size: 10px !important;
-      height: 20px !important;
-    }
-  }
-  /* עדכון לצ'יפים של אירועים/טיסות */
-.flight-chip {
-  font-size: 12px !important;
-  height: 24px !important;
-  border-radius: 12px !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  margin-bottom: 4px;
-}
-
-/* אפקט הקטנה בעת מעבר עכבר */
-.flight-chip:hover {
-  transform: scale(0.95); /* הקטנה של הצ'יפ */
-  background-color: rgba(25, 118, 210, 0.15);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 95%; /* מאפשר לראות יותר מהטקסט */
-  z-index: 2; /* מעל אלמנטים אחרים */
-}
-
-/* אפקט לחיצה */
-.flight-chip:active {
-  transform: scale(0.9);
-}
-/* עדכון לכפתורי הניווט (החיצים) */
-.nav-button {
-  background-color: #f5f5f5 !important;
-  border-radius: 4px !important; /* פינות מעוגלות קלות במקום עיגול מלא */
-  transition: all 0.2s ease;
-}
-
-/* אפקט מעבר עכבר מרובע */
-.nav-button:hover {
-  background-color: #e0e0e0 !important;
-  border-radius: 0 !important; /* הופך למרובע בעת מעבר עכבר */
-  transform: scale(1.05);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-/* אפקט לחיצה */
-.nav-button:active {
-  background-color: #d5d5d5 !important;
-  transform: scale(0.98);
-}
-
-/* אם יש קלאס ספציפי לכפתורי הניווט בקרוסלת היעדים */
-.carousel-control {
-  border-radius: 4px !important;
-  transition: all 0.2s ease;
-}
-
-.carousel-control:hover {
-  border-radius: 0 !important; /* הופך למרובע בעת מעבר עכבר */
-  background-color: rgba(0, 0, 0, 0.05) !important;
-}
-/* הקטנת גודל הטקסט באירועים */
-.flight-chip {
-  font-size: 10px !important; /* הקטנת גודל הפונט מ-12px ל-10px */
-  height: 22px !important; /* הקטנת גובה הצ'יפ */
-  border-radius: 11px !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  margin-bottom: 3px;
-  padding: 0 8px !important; /* הקטנת הפדינג בצדדים */
-}
-
-/* אפשרות להציג את כל הטקסט בעת מעבר עכבר */
-.flight-chip:hover {
-  max-width: 95%;
-  z-index: 10;
-  font-size: 10px !important; /* שמירה על גודל פונט קבוע גם בהובר */
-}
-
-/* התאמה לתוכן בתוך הצ'יפ */
-.flight-chip .MuiChip-label {
-  padding: 0 4px !important;
-  font-weight: 400;
-}
-
-/* התאמה לאייקונים בתוך הצ'יפ אם יש כאלה */
-.flight-chip .MuiChip-icon {
-  font-size: 10px !important;
-  margin-left: 3px !important;
-}
-/* הגדלת האירועים בקלנדר */
-.flight-chip {
-  font-size: 11px !important; /* גודל פונט נוח לקריאה */
-  height: 26px !important; /* הגדלת גובה הצ'יפ */
-  line-height: 26px !important; /* התאמת גובה השורה */
-  border-radius: 13px !important;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  max-width: 100%;
-  margin-bottom: 4px;
-  padding: 0 10px !important; /* פדינג נוח בצדדים */
-  box-sizing: border-box;
-}
-
-/* אפקט מעבר עכבר */
-.flight-chip:hover {
-  transform: scale(1.02); /* הגדלה קלה בעת מעבר עכבר */
-  background-color: rgba(25, 118, 210, 0.15);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  max-width: 98%; /* מאפשר לראות יותר מהטקסט */
-  z-index: 2; /* מעל אלמנטים אחרים */
-}
-
-/* התאמה לתוכן בתוך הצ'יפ */
-.flight-chip .MuiChip-label {
-  padding: 0 6px !important;
-  font-weight: 500; /* פונט מודגש קלות לקריאות טובה יותר */
-}
-
-/* התאמה לאייקונים בתוך הצ'יפ אם יש כאלה */
-.flight-chip .MuiChip-icon {
-  font-size: 14px !important;
-  margin-left: 4px !important;
-}
-
-/* הגדלת מכולת האירועים */
-.flights-container {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-top: auto;
-  overflow-y: auto;
-  max-height: 75%; /* הגדלת האזור המוקצה לאירועים */
-  padding: 2px;
-}
-
-/* התאמה לתאי הקלנדר כדי לאפשר אירועים גדולים יותר */
-.calendar-day {
-  width: 14.28% !important;
-  aspect-ratio: 1;
-  border: 1px solid #e0e0e0;
-  position: relative;
-  transition: all 0.2s ease;
-  overflow: hidden;
-  padding: 2px; /* פדינג קטן יותר לתא */
-}
-
-.day-content {
-  height: 100%;
-  padding: 6px; /* פדינג קטן יותר לתוכן */
-  display: flex;
-  flex-direction: column;
-}
-
-.day-number {
-  font-size: 13px !important; /* הקטנת מספר היום */
   margin-bottom: 3px !important;
   font-weight: 500;
 }
-/* שינוי מיקום מכולת האירועים - העלאה למעלה */
 .flights-container {
   display: flex;
   flex-direction: column;
   gap: 4px;
-  margin-top: 5px; /* מרווח קטן יותר מהחלק העליון */
+  margin-top: 5px; 
   overflow-y: auto;
-  max-height: 80%; /* הגדלת האזור המוקצה לאירועים */
+  max-height: 80%; 
   padding: 2px;
 }
 
-/* התאמת מבנה תוכן היום */
-.day-content {
-  height: 100%;
-  padding: 6px; /* פדינג קטן יותר לתוכן */
-  display: flex;
-  flex-direction: column;
-}
-
-/* הקטנת המרווח בין מספר היום לאירועים */
-.day-number {
-  font-size: 13px !important;
-  margin-bottom: 2px !important; /* מרווח קטן יותר */
-  font-weight: 500;
-}
-
-/* התאמת גובה האירועים */
 .flight-chip {
   font-size: 11px !important;
-  height: 24px !important; /* גובה מעט קטן יותר */
+  height: 24px !important; 
   line-height: 24px !important;
   border-radius: 12px !important;
-  margin-bottom: 3px; /* מרווח קטן יותר בין אירועים */
+  margin-bottom: 3px; 
   padding: 0 10px !important;
 }
 
-/* הגדלת הפדינג העליון של תא היום */
 .calendar-day {
   width: 14.28% !important;
   aspect-ratio: 1;
@@ -368,5 +225,5 @@
   position: relative;
   transition: all 0.2s ease;
   overflow: hidden;
-  padding-top: 1px; /* פדינג עליון קטן יותר */
+  padding-top: 1px; 
 }

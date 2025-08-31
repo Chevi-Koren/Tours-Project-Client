@@ -27,7 +27,6 @@ import {
   Tooltip
 } from '@mui/material';
 
-// Icons
 import EditIcon from '@mui/icons-material/Edit';
 import PeopleIcon from '@mui/icons-material/People';
 import CloseIcon from '@mui/icons-material/Close';
@@ -59,13 +58,12 @@ export const ClassToFlight = () => {
 
     
     useEffect(() => {
-        setLoading(true); // מתחיל טעינה
+        setLoading(true);  
         dispatch(loct("/AllClassToFlight"));
         
         dispatch(getAllClassToFlightThunk())
             .then(() => {
-                // מחכה מעט לפני הסרת הטעינה כדי למנוע הבהוב מהיר
-                // setTimeout(() => setLoading(false), 800);
+
                 setLoading(false)
             })
             .catch(() => {
@@ -74,10 +72,9 @@ export const ClassToFlight = () => {
     }, [dispatch]);
     
     const addCTFlight = (addctf) => {
-        setLoading(true); // מתחיל טעינה בעת עדכון
+        setLoading(true);
         dispatch(updateClassToFlight(addctf))
             .then(() => {
-                // setTimeout(() => setLoading(false), 500);
                 setLoading(false)
                 closeCtf();
             })
@@ -91,7 +88,6 @@ export const ClassToFlight = () => {
         setClassToFlightOpen(false);
     }
 
-    // אם בטעינה, מציג אנימציית טעינה
     if (loading) {
         return (
             <Container className="class-to-flight-container">
@@ -193,15 +189,15 @@ export const ClassToFlight = () => {
                                                         size="small"
                                                         className="view-button"
                                                         onClick={() => {
-                                                            setLoading(true); // מתחיל טעינה
-                                                            setDetail(true); // פותח את הדיאלוג
+                                                            setLoading(true); 
+                                                            setDetail(true); 
                                                             setSaveId(f.id); 
                                                             dispatch(getOrderDetailByClassToFlightIdThunk(f.id))
                                                                 .then(() => {
-                                                                    setLoading(false); // מסיים טעינה כשהנתונים מגיעים
+                                                                    setLoading(false); 
                                                                 })
                                                                 .catch(() => {
-                                                                    setLoading(false); // מסיים טעינה גם במקרה של שגיאה
+                                                                    setLoading(false); 
                                                                 });
                                                         }}
                                                     >
@@ -286,7 +282,6 @@ export const ClassToFlight = () => {
                 </TableContainer>
             </Paper>
 
-            {/* דיאלוג לקוחות שהזמינו */}
             <Dialog 
                 open={detail} 
                 onClose={() => setDetail(false)}
@@ -310,7 +305,6 @@ export const ClassToFlight = () => {
                     </Box>
                 </DialogTitle>
                 <DialogContent dividers className="dialog-content">
-                    {/* אנימציית טעינה */}
                     {loading ? (
                         <Box className="customers-loading-container">
                             <Box className="customers-loading-spinner"></Box>
@@ -380,7 +374,6 @@ export const ClassToFlight = () => {
                 </DialogContent>
             </Dialog>
 
-            {/* חלון עריכת מחלקה לטיסה */}
             {classToFlightOpen && (
                 <AddClassToFlight 
                     addCTFlight={addCTFlight} 

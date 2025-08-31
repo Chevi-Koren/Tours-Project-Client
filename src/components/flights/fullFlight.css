@@ -56,7 +56,6 @@
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
 }
 
-/* תמיכה במסכים קטנים */
 @media (max-width: 600px) {
     .flight-route {
         padding: 8px 15px;

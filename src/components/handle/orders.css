@@ -90,7 +90,6 @@
     font-style: italic;
   }
   
-  /* Dialog Styles */
   .order-dialog {
     direction: rtl;
   }
@@ -182,7 +181,6 @@
     padding: 6px 20px !important;
   }
   
-  /* For responsive design */
   @media (max-width: 960px) {
     .orders-container {
       padding-left: 16px;
@@ -263,11 +261,10 @@
     }
   }
 
-  /* הוספת סגנון למסגרת צבעונית לתאריך */
   .date-chip {
     font-weight: 500 !important;
     padding: 4px 8px !important;
-    color: #9c27b0 !important; /* צבע סגול */
+    color: #9c27b0 !important; 
     border-color: #9c27b0 !important;
   }
 
@@ -275,7 +272,6 @@
     color: #9c27b0 !important;
   }
 
-  /* הוספת אפקט הובר לכל הצ'יפים */
   .customer-chip:hover, .price-chip:hover, .date-chip:hover {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     transform: translateY(-1px);

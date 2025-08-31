@@ -41,7 +41,6 @@ export const Classes = () => {
   useEffect(() => {
     dispatch(loct("/chooseClass"));
     
-    // Add parallax effect on scroll
     const handleScroll = () => {
       const parallaxElements = document.querySelectorAll('.parallax-bg');
       parallaxElements.forEach(element => {
@@ -57,11 +56,8 @@ export const Classes = () => {
   const handleClassSelection = (classType) => {
     setSelectedClass(classType);
     setAnimateOut(true);
-    
-    // setTimeout(() => {
-      dispatch(chooseClass(classType));
-      navigate('/flights');
-    // }, 800);
+    dispatch(chooseClass(classType));
+    navigate('/flights');
   };
 
   const classOptions = [

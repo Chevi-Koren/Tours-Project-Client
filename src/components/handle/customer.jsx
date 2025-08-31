@@ -43,12 +43,10 @@ export const Customer = () => {
   const customers = useSelector(state => state.flights.customers);
 
   useEffect(() => {
-    setLoading(true); // מתחיל טעינה
+    setLoading(true); 
     dispatch(loct("/customer"));
     dispatch(getAllCustomersThunk())
       .then(() => {
-        // מחכה מעט לפני הסרת הטעינה כדי למנוע הבהוב מהיר
-        // (() => setLoading(false), 800);
         setLoading(false)
       })
       .catch(() => {
@@ -56,7 +54,6 @@ export const Customer = () => {
       });
   }, [dispatch]);
 
-  // פילטור לקוחות לפי חיפוש
   const filteredCustomers = customers?.filter(customer => 
     customer.firstName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
     customer.lastName?.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -64,18 +61,15 @@ export const Customer = () => {
     customer.phone?.includes(searchTerm)
   );
 
-  // פתיחת פרטי הזמנות
   const handleOpenOrders = (customerId) => {
     dispatch(setUserId(customerId));
     setOrd(true);
   };
 
-  // רענון רשימת הלקוחות
   const handleRefresh = () => {
     setLoading(true);
     dispatch(getAllCustomersThunk())
       .then(() => {
-        // (() => setLoading(false), 800);
         setLoading(false)
       })
       .catch(() => {
@@ -83,7 +77,6 @@ export const Customer = () => {
       });
   };
 
-  // אם בטעינה, מציג אנימציית טעינה
   if (loading) {
     return (
       <Container className="customer-container">
@@ -231,7 +224,6 @@ export const Customer = () => {
         </TableContainer>
       </Paper>
 
-      {/* דיאלוג פרטי הזמנות */}
       <Dialog 
         open={ord} 
         onClose={() => setOrd(false)} 

@@ -37,16 +37,14 @@ export const Flight = () => {
     timeOfFlight: "", 
     sold: 0
   });
-  const [loading, setLoading] = useState(true); // מצב טעינה חדש
+  const [loading, setLoading] = useState(true);
   const flightsArr = useSelector(state => state.flights.flightsArr);
 
   useEffect(() => {
-    setLoading(true); // מתחיל טעינה
+    setLoading(true);
     dispatch(loct("/flights"));
     dispatch(getAllFlightThunk())
       .then(() => {
-        // מחכה מעט לפני הסרת הטעינה כדי למנוע הבהוב מהיר
-        // setTimeout(() => setLoading(false), 800);
         setLoading(false)
       })
       .catch(() => {
@@ -55,10 +53,9 @@ export const Flight = () => {
   }, [dispatch]);
 
   const addFlight = (addFlt) => {
-    setLoading(true); // מתחיל טעינה בעת הוספה
+    setLoading(true); 
     dispatch(addFlightThunk(addFlt))
       .then(() => {
-        // setTimeout(() => setLoading(false), 500);
         setLoading(false)
         close();
       })
@@ -69,10 +66,9 @@ export const Flight = () => {
   };
 
   const update = (update) => {
-    setLoading(true); // מתחיל טעינה בעת עדכון
+    setLoading(true);
     dispatch(updateFlightThunk(update))
       .then(() => {
-        // setTimeout(() => setLoading(false), 500);
         setLoading(false)
         close();
       })
@@ -93,7 +89,6 @@ export const Flight = () => {
     return `${hours > 0 ? `${hours}ש' ` : ''}${mins}ד'`;
   };
 
-  // אם בטעינה, מציג אנימציית טעינה
   if (loading) {
     return (
       <Container className="flight-container">

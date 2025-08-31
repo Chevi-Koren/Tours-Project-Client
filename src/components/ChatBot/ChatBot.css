@@ -109,7 +109,6 @@
     margin-right: 8px !important;
   }
   
-  /* For responsive design */
   @media (max-width: 600px) {
     .chat-window-collapse {
       width: 300px;

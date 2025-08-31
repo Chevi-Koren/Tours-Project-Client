@@ -10,7 +10,6 @@ async ({name, lastName, pass}) => {
         const data = await response.json();
         return data;
     } catch (error) {
-        console.log("Faild to find logIn");
         throw new Error("Faild to find logIn");
     }
     
