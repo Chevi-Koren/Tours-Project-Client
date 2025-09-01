@@ -8,8 +8,6 @@ import { ChatBot } from './components/ChatBot/ChatBot';
 
 
 
-
-
 function App() {
   return (
     <div >
